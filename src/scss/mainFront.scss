@@ -1,0 +1,42 @@
+@use './helper/' as *;
+@use './front/' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: $mainFont;
+    width: 100vw;
+    height: 100vh;
+    background: $defaultDark;
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-transform: uppercase;
+    color: $defaultLight;
+}
+
+h1{
+    font-size: 9vmin;
+    text-align: center;
+}
+
+h3{
+    font-size: 6vmin;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+button,
+input[type="submit"]{
+    cursor: pointer;
+}

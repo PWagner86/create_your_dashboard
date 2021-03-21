@@ -1,0 +1,132 @@
+@font-face {
+  src: url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+  font-family: "Orbitron", sans-serif;
+}
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 25vh;
+}
+.main-header .main-title span {
+  letter-spacing: 0.5rem;
+  color: #13F2DC;
+  text-shadow: 0 0 1em #026873;
+}
+
+.login-register-wrapper {
+  position: relative;
+  height: 75vh;
+}
+
+.log-reg-form {
+  width: 90vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #026873;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.log-reg-form .form-title {
+  padding: 0.5rem 0;
+  letter-spacing: 0.5rem;
+}
+.log-reg-form .error-msg {
+  color: #ff3300;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+.log-reg-form .form-label {
+  width: 80%;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #ffffff;
+}
+.log-reg-form .form-label .form-input {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  font-family: "Orbitron", sans-serif;
+  background: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  transition: ease-in-out 0.3s;
+}
+.log-reg-form .form-label .form-input:hover {
+  box-shadow: 0 0 1em #13F2DC;
+}
+.log-reg-form .form-submit-wrapper {
+  width: 80%;
+  padding: 1rem 0;
+}
+.log-reg-form .form-submit-wrapper .form-btn {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-family: "Orbitron", sans-serif;
+  border: none;
+  background: #13F2DC;
+  color: #026873;
+  border-radius: 5px;
+  transition: ease-in-out 0.3s;
+}
+.log-reg-form .form-submit-wrapper .form-btn:hover {
+  box-shadow: 0 0 1em #13F2DC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 9vmin;
+  text-align: center;
+}
+
+h3 {
+  font-size: 6vmin;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input[type=submit] {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=mainFront.css.map */

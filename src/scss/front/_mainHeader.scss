@@ -1,0 +1,15 @@
+@use '../helper/' as *;
+
+.main-header{
+    @include flex(center, center, row);
+    height: 25vh;
+
+    .main-title{
+
+        span{
+            letter-spacing: 0.5rem;
+            color: $defaultRegular;
+            text-shadow: 0 0 1em $defaultMedium;
+        }
+    }
+}
