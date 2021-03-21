@@ -1,0 +1,43 @@
+@font-face {
+  src: url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+  font-family: "Orbitron", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  background: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 9vmin;
+  text-align: center;
+}
+
+h3 {
+  font-size: 6vmin;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input[type=submit] {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=mainback.css.map */

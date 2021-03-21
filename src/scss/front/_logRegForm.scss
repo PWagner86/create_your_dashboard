@@ -2,14 +2,10 @@
 
 .log-reg-form{
     width: 90vmin;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     @include flex(center, center, column);
     background: $defaultMedium;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 2rem 0;
 
     .form-title{
         padding: 0.5rem 0;
@@ -65,5 +61,23 @@
                 box-shadow: 0 0 1em $defaultRegular;
             }
         }
+    }
+}
+
+.register-form{
+    display: none;
+    margin-bottom: 2rem;
+
+    .avatar-select{
+
+        option{
+            color: $defaultMedium;
+        }
+    }
+
+    .avatar-pic{
+        height: 50vmin;
+        width: auto;
+        margin: 1rem 0;
     }
 }

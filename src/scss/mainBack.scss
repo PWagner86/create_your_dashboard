@@ -1,5 +1,5 @@
 @use './helper/' as *;
-@use './front/' as *;
+@use './back/' as *;
 
 *{
     margin: 0;
@@ -9,8 +9,6 @@
 
 body{
     font-family: $mainFont;
-    max-width: 100vw;
-    min-height: 100vh;
     background: $defaultDark;
 
 }

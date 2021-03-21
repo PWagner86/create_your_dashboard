@@ -1,6 +1,6 @@
 @use '../helper/' as *;
 
 .login-register-wrapper{
-    position: relative;
-    height: 75vh;
+    min-height: 75vh;
+    @include flex(space-around, center, column);
 }
