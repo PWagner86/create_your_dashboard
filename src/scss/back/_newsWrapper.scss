@@ -1,4 +1,32 @@
+@use '../helper/' as *;
+
 .news-wrapper{
     left: 0;
     bottom: 0;
+    @include flex(center, center, column);
+
+
+    .news-title{
+        width: 90%;
+        padding: 1rem 0 0.5rem 0;
+        font-size: 3vmin;
+        overflow: auto;
+    }    
+
+
+    .article-wrapper{
+        padding: 1rem 0;
+        width: 90%;
+        @include flex(space-around, center, row);
+
+        .news-pic{
+            height: auto;
+            width: 40%;
+        }
+
+        .news-article{
+            font-size: 3vmin;
+            text-align: center;
+        }
+    }
 }

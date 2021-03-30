@@ -59,18 +59,22 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
         </div>
         <!-- Wetter -->
         <div class="weather-wrapper content">
-            <div style="border-color: <?=$color3?>; box-shadow: 0 0 20px <?=$color2?>" class="outer-weather">
-                <div style="border-color: <?=$color2?>;" class="inner-weather">
-                    <p style="color: <?=$color4?>;" class="city">Winterthur</p>
-                    <p style="color: <?=$color4?>;" class="degree">25°C</p>
-                    <img class="weather-icon" src="" alt="">
-                </div>
-            </div>
+            <p style="color: <?=$color4?>;" class="city">Winterthur</p>
+            <img class="weather-icon" src="" alt="Wetter-Icon">
+            <p style="color: <?=$color4?>;" class="degree">25°C</p>
         </div> 
         <!-- News -->
-        <div class="news-wrapper content"></div>
+        <div class="news-wrapper content">
+            <h6 style="color: <?=$color2?>;" class="news-title">Test</h6>
+            <div class="article-wrapper">
+                <img class="news-pic" src="" alt="Bild zum Artikel">
+                <a style="color: <?=$color4?>;" class="news-article" href=""></a>
+            </div>
+        </div>
         <!-- Avatar -->
-        <div class="avatar-wrapper content"></div>
+        <div class="avatar-wrapper content">
+            <img class="avatar" src="https://avatars.dicebear.com/api/<?=$avatar?>/<?=$username?>.svg" alt="Dein gewählter Avatar">
+        </div>
     </article>
 
 

@@ -1,4 +1,5 @@
 import getTime from './Clock.js';
+import getNews from './News.js';
 import getWeather from './Weather.js';
 // Variables
 const navBtn = document.querySelector(".nav-btn");
@@ -22,4 +23,5 @@ navBtn.addEventListener("click", () => {
 // Funktion um die Uhr aktuell zu halten
 getTime();
 getWeather();
+getNews();
 // Functions
