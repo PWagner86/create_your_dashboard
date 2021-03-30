@@ -1,0 +1,45 @@
+@use '../helper/' as *;
+
+.clock-wrapper{
+    left: 0;
+    top: 0;
+    @include flex(center, center, row);
+
+    .outer-clock{
+        width: 40vmin;
+        height: 40vmin;
+        @include border(1vmin);
+        @include flex(center, center, row);
+        border-radius: 50%;
+
+        .middle-clock{
+            width: 95%;
+            height: 95%;
+            @include border(4vmin);
+            @include flex(center, center, row);
+            border-radius: 50%;
+
+            .inner-clock{
+                width: 90%;
+                height: 90%;
+                @include border(0.5vmin);
+                @include flex(center, center, column);
+                border-radius: 50%;
+
+                .clock-day{
+                    font-size: 3vmin;
+                    padding: 0.3rem 0;
+                }
+
+                .clock-date{
+                    font-size: 3vmin;
+                }
+
+                .clock-time{
+                    font-size: 5vmin;
+                    padding: 0.3rem 0;
+                }
+            }
+        }
+    }
+}

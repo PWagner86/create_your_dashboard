@@ -1,0 +1,12 @@
+.dashboard-wrapper{
+    height: 85vh;
+    width: 100%;
+    position: relative;
+
+    .content{
+        position: absolute;
+        // border: solid white 2px;
+        width: 50%;
+        height: 50%;
+    }
+}

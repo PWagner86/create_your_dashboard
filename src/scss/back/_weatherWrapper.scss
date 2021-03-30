@@ -1,0 +1,37 @@
+@use '../helper/' as *;
+
+.weather-wrapper{
+    right: 0;
+    top: 0;
+    @include flex(center, center, row);
+
+    .outer-weather{
+        width: 40vmin;
+        height: 40vmin;
+        @include border(4vmin);
+        @include flex(center, center, row);
+        border-radius: 50%;
+
+        .inner-weather{
+            width: 90%;
+            height: 90%;
+            @include border(0.5vmin);
+            @include flex(center, center, column);
+            border-radius: 50%;
+
+            .city{
+                font-size: 3vmin;
+                padding: 0.3rem 0;
+            }
+
+            .degree{
+                font-size: 3vmin;
+            }
+
+            .weather-icon{
+                height: 40%;
+                width: auto;
+            }
+        }
+    }
+}

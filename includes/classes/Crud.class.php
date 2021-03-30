@@ -52,7 +52,7 @@ class Crud extends PDO{
                 $_SESSION['ID'] = $result['ID'];
                 $_SESSION['user'] = $result['benutzername'];
                 $_SESSION['avatar'] = $result['avatar'];    
-                $_SESSION['color'] = $result['farbschema'];    
+                $_SESSION['color'] = $result['farbschema'];
             }
         }
     }

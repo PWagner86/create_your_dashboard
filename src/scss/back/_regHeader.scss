@@ -1,0 +1,27 @@
+@use '../helper/' as *;
+
+.reg-header{
+    height: 15vh;
+    width: 100%;
+    position: relative;
+    @include flex(center, center, row);
+
+    .nav-btn{
+        width: 10vmin;
+        height: 10vmin;
+        position: absolute;
+        @include flex(center, center, row);
+        @include border(0.5vmin);
+        border-radius: 50%;
+        left: 5%;
+        top: 30%;
+        font-size: 4vmin;
+        cursor: pointer;
+        transition: 1s ease-in-out;
+        z-index: 3;
+    }
+
+    h1{
+        z-index: 2;
+    }
+}

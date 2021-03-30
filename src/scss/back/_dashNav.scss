@@ -1,0 +1,21 @@
+@use '../helper/' as *;
+
+.dash-nav{
+    height: 100vh;
+    width: 20%;
+    position: absolute;
+    top: -100vh;
+    transition: 1s ease-in-out;
+    @include flex(center, flex-end, row);
+    z-index: 1;
+
+    ul{
+        height: 80%;
+        @include flex(space-around, center, column);
+
+        li{
+            cursor: pointer;
+            font-size: 3vmin;
+        }
+    }
+}
