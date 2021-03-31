@@ -113,11 +113,11 @@ if(isset($_POST['login'])){
                 Wähle dein Avatar-Typ:
 
                 <select class="form-input avatar-select" name="avatar">
-                    <option value="avataaars">Avataaars</option>
                     <option value="male">Mann</option>
                     <option value="female">Frau</option>
                     <option value="human">Mensch</option>
                     <option value="bottts">Roboter</option>
+                    <option value="avataaars">Avataaars</option>
                 </select>
             </label>
             <!-- Eingabe für Benutzername -->
