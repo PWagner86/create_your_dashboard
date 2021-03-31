@@ -21,6 +21,9 @@ export default function getWeather() {
                     temp.innerHTML = `${degree}°C`;
                     icon.src = ` http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
                 });
+            })
+                .catch(error => {
+                console.log(error);
             });
         }
     };

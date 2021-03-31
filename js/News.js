@@ -15,10 +15,18 @@ export default function getNews() {
                     let random = Math.floor(Math.random() * Math.floor(data.articles.length));
                     const article = data.articles[random];
                     headline.innerHTML = article.title;
-                    newsPic.setAttribute("src", article.urlToImage);
+                    if (article.urlToImage === null) {
+                        newsPic.setAttribute("src", "../pics/image-not-found.jpg");
+                    }
+                    else {
+                        newsPic.setAttribute("src", article.urlToImage);
+                    }
                     newsText.setAttribute("href", article.url);
                     newsText.innerHTML = `Zum Artikel:<br><span>${article.source.name}</span>`;
                 });
+            })
+                .catch(error => {
+                console.log(error);
             });
         }
     };
