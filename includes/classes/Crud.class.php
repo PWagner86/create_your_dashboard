@@ -60,14 +60,11 @@ class Crud extends PDO{
     public function updateColorMethod($farbSchema, $id){
         $query = "UPDATE user SET ";
         $query .= "farbschema = :farbschema ";
-        $query .= "WHERE ID = :ID ";
+        $query .= "WHERE ID = :ID";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
         $stmt -> bindParam(":farbschema", $farbSchema, PDO::PARAM_INT);
         $stmt -> execute();
     }
 }
-
-
-
 ?>

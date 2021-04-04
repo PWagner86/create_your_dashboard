@@ -2,53 +2,51 @@
 session_start();
 require('./includes/prefs/credentials.php');
 require('./includes/classes/Crud.class.php');
-require('./includes/classes/FormValidation.class.php');
+require('./includes/classes/InputValidation.class.php');
 // CRUD Validierungsklasse instanzieren
 $crudInstance = new Crud($host, $user, $passwd, $dbname);
-$validationInstance = new FormValidation();
-
-$usernameValue = "";
-$emailValue = "";
-$passwordValue = "";
-$errorMsg = "";
-$registerErrorEmail = "";
-$registerErrorUsername = "";
-$registerErrorPassword = "";
-$errorLoginMsg = "";
-$loginValue = "";
 
 // Registrieren
-if(isset($_POST['register'])){
-    $usernameValue = $validationInstance -> validateElement($_POST['username'], "username", "Bitte gültigen Benutzernamen eingeben");
-    $emailValue = $validationInstance -> validateElement($_POST['email'], "email", "Bitte gültigen Email eingeben");
-    $passwordValue = $validationInstance -> validateElement($_POST['password'], "password", "Bitte gültiges Passwort eingeben");
+$regEmail = "";
+$regPassword = "";
+$regUsername = "";
+$regError = "";
 
-    if($validationInstance -> validationState){
-        $passwordValue = password_hash($passwordValue, PASSWORD_DEFAULT);
-        $avatarValue = $_POST['avatar'];
-        $crudInstance -> createMethod($usernameValue, $emailValue, $passwordValue, $avatarValue, 1);
+if(isset($_POST["register"])){
+    // Eingaben validieren
+    $validation = new InputValidation($_POST);
+    $errors = $validation -> validateForm();
+    $regEmail = $_POST['email'];
+    $regPassword = $_POST['password'];
+    $regUsername = $_POST['username'];
+
+    // Wenn das Error-Array leer ist, werden die Eingaben in die Datenbank gespeichert
+    if(empty($errors)){
+        $crudInstance -> createMethod($regUsername, $regEmail, password_hash($regPassword, PASSWORD_DEFAULT), $_POST['avatar'], 1);
         header("location: index.php");
     }else{
-        $registerErrorEmail = $validationInstance -> feedbackArray['email'];
-        $registerErrorUsername = $validationInstance -> feedbackArray['username'];
-        $registerErrorPassword = $validationInstance -> feedbackArray['password'];
-        $errorMsg = "Etwas ist schief gelaufen";
+        $regError = "Etwas ist schief gelaufen";
     }
 }
 
 // Login
-if(isset($_POST['login'])){
-    $loginValue =  $validationInstance -> validateElement($_POST['email'], "email", "Bitte gültigen Email eingeben");
-    $passwordValue = $validationInstance -> validateElement($_POST['password'], "password", "Bitte gültiges Passwort eingeben");
-    if($validationInstance -> validationState){
-        $errorLoginMsg = $crudInstance -> login($loginValue, $passwordValue);
+$logEmail = "";
+$logPassword = "";
+
+if(isset($_POST["login"])){
+    // Eingaben validieren
+    $validation = new InputValidation($_POST);
+    $errors = $validation -> validateLogin();
+    $logEmail = $_POST['email'];
+    $logPassword = $_POST['password'];
+
+    // Wenn das Error-Array leer ist, wird eingelogt.
+    if(empty($errors)){
+        $crudInstance -> login($logEmail, $logPassword);
         header("location: ./includes/dashboard.php");
-    }elseif(empty($_POST['email']) || empty($_POST['password'])){
-        $errorLoginMsg = "Bitte Email und Passwort eingeben";
-    }else{
-        $errorLoginMsg = "Email oder Passwort wurden falsch eingegeben";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -73,9 +71,9 @@ if(isset($_POST['login'])){
             <!-- Form-Titel -->
             <h3 class="form-title">Login</h3>
             <!-- Fehlermeldung -->
-            <p class="error-msg"><?=$errorLoginMsg?></p>
+            <p class="error-msg"><?= $validation -> logError ?? '' ?></p>
             <!-- Eingabe für Email -->
-            <label class="form-label" for="email" value="<?=$loginValue?>">
+            <label class="form-label" for="email">
                 Email
                 <input class="form-input" type="text" name="email">
             </label>
@@ -95,16 +93,16 @@ if(isset($_POST['login'])){
             <!-- Form-Titel -->
             <h3 class="form-title">Registrieren</h3>
             <!-- Hauptfehlermeldung -->
-            <p class="error-msg main-error"><?=$errorMsg?></p>
+            <p class="error-msg main-error"><?= $regError ?></p>
             <!-- Eingabe für Email -->
             <label class="form-label" for="email">
-                <p class="error-msg"><?=$registerErrorEmail?></p>
+                <p class="error-msg"><?=$errors['email'] ?? '' ?></p>
                 Email:
-                <input class="form-input" type="text" name="email" value="<?=$emailValue?>">
+                <input class="form-input" type="text" name="email" value="<?= htmlspecialchars($regEmail)?>">
             </label>
             <!-- Eingabe für Passwort -->
             <label class="form-label" for="password">
-                <p class="error-msg"><?=$registerErrorPassword?></p>
+                <p class="error-msg"><?=$errors['password'] ?? '' ?></p>
                 Passwort:
                 <input class="form-input" type="password" name="password">
             </label>
@@ -122,9 +120,9 @@ if(isset($_POST['login'])){
             </label>
             <!-- Eingabe für Benutzername -->
             <label class="form-label" for="username">
-                <p class="error-msg"><?=$registerErrorUsername?></p>
+                <p class="error-msg"><?=$errors['username'] ?? '' ?></p>
                 Benutzername:
-                <input class="form-input username" type="text" name="username" value="<?=$usernameValue?>">
+                <input class="form-input username" type="text" name="username" value="<?= htmlspecialchars($regUsername)?>">
             </label>
             <!-- Bild des Avatars -->
             <img class="avatar-pic" src="" alt="Der gewählte Avatar">
