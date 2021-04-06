@@ -1,12 +1,11 @@
 .dashboard-wrapper{
     height: 85vh;
-    width: 100%;
     position: relative;
-    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
 
     .content{
         position: absolute;
-        // border: solid white 2px;
         width: 50%;
         height: 50%;
     }

@@ -3,7 +3,7 @@
 .weather-wrapper{
     right: 0;
     top: 0;
-    @include flex(space-around, center, column);
+    @include flex(center, center, column);
 
     .weather-icon{
         height: 50%;

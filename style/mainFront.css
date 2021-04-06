@@ -154,6 +154,7 @@ a {
 button,
 input[type=submit] {
   cursor: pointer;
+  font-family: "Orbitron", sans-serif;
 }
 
 /*# sourceMappingURL=mainFront.css.map */

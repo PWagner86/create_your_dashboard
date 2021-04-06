@@ -1,0 +1,282 @@
+@use '../helper/' as *;
+
+.color-form-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.849);
+
+    .color-form{
+        width: 80vmin;
+        height: 80%;
+        @include flex(center, center, column);
+        @include border(0.7vmin);
+        border-radius: 5px;
+    
+        .color-title{
+            text-align: center;
+        }
+    
+        .color-wrapper{
+            width: 80%;
+            overflow: auto;
+    
+            .color-pick{
+                width: 100%;
+                padding: 1rem;
+                @include flex(space-between, center, row);
+    
+                .color-container{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    @include border(0.7vmin);
+                    border-radius: 5px;
+    
+                    div{
+                        width: 25%;
+                        height: 6vmin;
+                    }
+                }
+    
+                .select-btn-wrapper{
+                    height: 8vmin;
+                    width: 8vmin;
+                    @include flex(center, center, row);
+                    position: relative;
+                    background: #1b1b1b;
+                    border-radius: 50%;
+                    box-shadow: 0 3px 4px rgba(0,0,0,1),
+                                inset 0 -2px 5px rgba(0,0,0,1),
+                                inset 0 2px 2px rgba(255, 255, 255, 0.5),
+                                0 0 0 2px #000,
+                                0 0 0 5px #0c0c0c,
+                                0 0 0 5.5px #080808;
+                    
+                    .select-btn{
+                        appearance: none;
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        cursor: pointer;
+                    }
+            
+                    i{
+                        font-size: 4vmin;
+                        color: #0c0c0c;
+                    }
+                
+                    .select-btn:checked ~ i{
+                        color: #00ffe7;
+                        text-shadow: 0 0 15px #00a1ff,
+                                     0 0 30px #00a1ff;
+                    }        
+                }
+                
+                .cc1{
+    
+                    .color-1{
+                        background: #000000;
+                    }
+        
+                    .color-2{
+                        background: #026873;
+                    }
+        
+                    .color-3{
+                        background: #13F2DC;
+                    }
+        
+                    .color-4{
+                        background: #ffffff;
+                    }   
+                }
+    
+                .cc2{
+    
+                    .color-1{
+                        background: #010D00;
+                    }
+        
+                    .color-2{
+                        background: #BFADA3;
+                    }
+        
+                    .color-3{
+                        background: #BFAB49;
+                    }
+        
+                    .color-4{
+                        background: #D9D7D7;
+                    }   
+                }
+    
+                .cc3{
+    
+                    .color-1{
+                        background: #3726A6;
+                    }
+        
+                    .color-2{
+                        background: #F20505;
+                    }
+        
+                    .color-3{
+                        background: #F2BE22;
+                    }
+        
+                    .color-4{
+                        background: #F2E635;
+                    }   
+                }
+    
+                .cc4{
+    
+                    .color-1{
+                        background: #202426;
+                    }
+        
+                    .color-2{
+                        background: #6C733D;
+                    }
+        
+                    .color-3{
+                        background: #9DA65D;
+                    }
+        
+                    .color-4{
+                        background: #8C8C88;
+                    }   
+                }
+    
+                .cc5{
+    
+                    .color-1{
+                        background: #01260E;
+                    }
+        
+                    .color-2{
+                        background: #04D9B2;
+                    }
+        
+                    .color-3{
+                        background: #038C5A;
+                    }
+        
+                    .color-4{
+                        background: #04BF68;
+                    }   
+                }
+    
+                .cc6{
+    
+                    .color-1{
+                        background: #730217;
+                    }
+        
+                    .color-2{
+                        background: #090B0D;
+                    }
+        
+                    .color-3{
+                        background: #D94F30;
+                    }
+        
+                    .color-4{
+                        background: #F2CB05;
+                    }   
+                }
+    
+                .cc7{
+    
+                    .color-1{
+                        background: #73A2BF;
+                    }
+        
+                    .color-2{
+                        background: #F2CAA7;
+                    }
+        
+                    .color-3{
+                        background: #023059;
+                    }
+        
+                    .color-4{
+                        background: #03588C;
+                    }   
+                }
+    
+                .cc8{
+    
+                    .color-1{
+                        background: #D9D0C1;
+                    }
+        
+                    .color-2{
+                        background: #D9A86C;
+                    }
+        
+                    .color-3{
+                        background: #A65E44;
+                    }
+        
+                    .color-4{
+                        background: #072A40;
+                    }   
+                }
+    
+                .cc9{
+    
+                    .color-1{
+                        background: #0D0D0D;
+                    }
+        
+                    .color-2{
+                        background: #2F4673;
+                    }
+        
+                    .color-3{
+                        background: #A6A6A6;
+                    }
+        
+                    .color-4{
+                        background: #D9D9D9;
+                    }   
+                }
+    
+                .cc10{
+    
+                    .color-1{
+                        background: #26111F;
+                    }
+        
+                    .color-2{
+                        background: #8C2E6B;
+                    }
+        
+                    .color-3{
+                        background: #717343;
+                    }
+        
+                    .color-4{
+                        background: #BFB47A;
+                    }   
+                }
+            }
+        }
+        
+        .pick-color{
+            margin: 2rem 0;
+            padding: 0.5rem 1rem;
+            font-size: 3vmin;
+            @include border(0.5vmin);
+            border-radius: 5px;
+        }
+    }
+}
+

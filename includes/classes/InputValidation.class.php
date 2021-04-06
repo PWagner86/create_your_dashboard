@@ -4,15 +4,15 @@ class InputValidation{
     private $data;
     public $logError;
     private $errors = array();
-    private static $formFields = ['email', 'password', 'username'];
-    private static $loginFields = ['email', 'password'];
+    private $formFields = ['email', 'password', 'username'];
+    private $loginFields = ['email', 'password'];
 
     public function __construct($postData){
         $this -> data = $postData;
     }
     
     public function validateForm(){
-        foreach(self::$formFields as $field){
+        foreach($this -> formFields as $field){
             if(!array_key_exists($field, $this -> data)){
                 trigger_error("$field ist nicht in data enthalten");
                 return;
@@ -26,7 +26,7 @@ class InputValidation{
     }
 
     public function validateLogin(){
-        foreach(self::$loginFields as $field){
+        foreach($this -> loginFields as $field){
             if(!array_key_exists($field, $this -> data)){
                 trigger_error("$field ist nicht in data enthalten");
                 return;

@@ -39,6 +39,7 @@ class Crud extends PDO{
         return $result;
     }
 
+    
     public function login($email, $password){
         
         $query = "SELECT * FROM user WHERE email = :email";
@@ -46,16 +47,15 @@ class Crud extends PDO{
         $stmt -> bindParam(':email', $email);
         $stmt -> execute();
         $result = $stmt -> fetch();
-        if($result){
-            if(password_verify($password, $result['passwort'])){
-                $_SESSION['status'] = "Loged in";
-                $_SESSION['ID'] = $result['ID'];
-                $_SESSION['user'] = $result['benutzername'];
-                $_SESSION['avatar'] = $result['avatar'];    
-                $_SESSION['color'] = $result['farbschema'];
-            }
+        if($result && password_verify($password, $result['passwort'])){
+            $_SESSION['status'] = "Loged in";
+            $_SESSION['ID'] = $result['ID'];
+            $_SESSION['user'] = $result['benutzername'];
+            $_SESSION['avatar'] = $result['avatar'];    
+            $_SESSION['color'] = $result['farbschema'];
         }
     }
+
 
     public function updateColorMethod($farbSchema, $id){
         $query = "UPDATE user SET ";

@@ -35,7 +35,7 @@
 
 .dash-nav {
   height: 100vh;
-  width: 20%;
+  width: 30%;
   position: absolute;
   top: -100vh;
   transition: 1s ease-in-out;
@@ -59,9 +59,9 @@
 
 .dashboard-wrapper {
   height: 85vh;
-  width: 100%;
   position: relative;
-  overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .dashboard-wrapper .content {
   position: absolute;
@@ -126,7 +126,7 @@
   right: 0;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -183,6 +183,211 @@
   width: auto;
 }
 
+.color-form-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.849);
+}
+.color-form-wrapper .color-form {
+  width: 80vmin;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 0.7vmin;
+  border-radius: 5px;
+}
+.color-form-wrapper .color-form .color-title {
+  text-align: center;
+}
+.color-form-wrapper .color-form .color-wrapper {
+  width: 80%;
+  overflow: auto;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .color-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  border-style: solid;
+  border-width: 0.7vmin;
+  border-radius: 5px;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .color-container div {
+  width: 25%;
+  height: 6vmin;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .select-btn-wrapper {
+  height: 8vmin;
+  width: 8vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  background: #1b1b1b;
+  border-radius: 50%;
+  box-shadow: 0 3px 4px black, inset 0 -2px 5px black, inset 0 2px 2px rgba(255, 255, 255, 0.5), 0 0 0 2px #000, 0 0 0 5px #0c0c0c, 0 0 0 5.5px #080808;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .select-btn-wrapper .select-btn {
+  appearance: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  cursor: pointer;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .select-btn-wrapper i {
+  font-size: 4vmin;
+  color: #0c0c0c;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .select-btn-wrapper .select-btn:checked ~ i {
+  color: #00ffe7;
+  text-shadow: 0 0 15px #00a1ff, 0 0 30px #00a1ff;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc1 .color-1 {
+  background: #000000;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc1 .color-2 {
+  background: #026873;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc1 .color-3 {
+  background: #13F2DC;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc1 .color-4 {
+  background: #ffffff;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc2 .color-1 {
+  background: #010D00;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc2 .color-2 {
+  background: #BFADA3;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc2 .color-3 {
+  background: #BFAB49;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc2 .color-4 {
+  background: #D9D7D7;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc3 .color-1 {
+  background: #3726A6;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc3 .color-2 {
+  background: #F20505;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc3 .color-3 {
+  background: #F2BE22;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc3 .color-4 {
+  background: #F2E635;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc4 .color-1 {
+  background: #202426;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc4 .color-2 {
+  background: #6C733D;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc4 .color-3 {
+  background: #9DA65D;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc4 .color-4 {
+  background: #8C8C88;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc5 .color-1 {
+  background: #01260E;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc5 .color-2 {
+  background: #04D9B2;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc5 .color-3 {
+  background: #038C5A;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc5 .color-4 {
+  background: #04BF68;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc6 .color-1 {
+  background: #730217;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc6 .color-2 {
+  background: #090B0D;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc6 .color-3 {
+  background: #D94F30;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc6 .color-4 {
+  background: #F2CB05;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc7 .color-1 {
+  background: #73A2BF;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc7 .color-2 {
+  background: #F2CAA7;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc7 .color-3 {
+  background: #023059;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc7 .color-4 {
+  background: #03588C;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc8 .color-1 {
+  background: #D9D0C1;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc8 .color-2 {
+  background: #D9A86C;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc8 .color-3 {
+  background: #A65E44;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc8 .color-4 {
+  background: #072A40;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc9 .color-1 {
+  background: #0D0D0D;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc9 .color-2 {
+  background: #2F4673;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc9 .color-3 {
+  background: #A6A6A6;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc9 .color-4 {
+  background: #D9D9D9;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc10 .color-1 {
+  background: #26111F;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc10 .color-2 {
+  background: #8C2E6B;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc10 .color-3 {
+  background: #717343;
+}
+.color-form-wrapper .color-form .color-wrapper .color-pick .cc10 .color-4 {
+  background: #BFB47A;
+}
+.color-form-wrapper .color-form .pick-color {
+  margin: 2rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 3vmin;
+  border-style: solid;
+  border-width: 0.5vmin;
+  border-radius: 5px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -221,6 +426,7 @@ a {
 button,
 input[type=submit] {
   cursor: pointer;
+  font-family: "Orbitron", sans-serif;
 }
 
 /*# sourceMappingURL=mainBack.css.map */

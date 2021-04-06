@@ -3,7 +3,7 @@ export default function getNews(){
     const headline:any = document.querySelector(".news-title");
     const newsText:any = document.querySelector(".news-article");
     const newsPic:any = document.querySelector(".news-pic");
-
+    
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

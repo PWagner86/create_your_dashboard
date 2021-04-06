@@ -2,6 +2,10 @@
 session_start();
 require('./classes/Crud.class.php');
 require('./helper/colorPicker.php');
+require('./prefs/credentials.php');
+// CRUD Validierungsklasse instanzieren
+$crudInstance = new Crud($host, $user, $passwd, $dbname);
+
 if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     // echo $_SESSION['status'];
     // echo $_SESSION['ID'];
@@ -11,6 +15,15 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     $avatar = $_SESSION['avatar'];
 }else{
     header("location: ../index.php");
+}
+
+if(isset($_POST['pick-color'])){
+    $colorSchema = $_POST['color-select'];
+    if(isset($colorSchema)){
+        $crudInstance -> updateColorMethod($colorSchema, $_SESSION['ID']);
+        $_SESSION['color'] = $colorSchema;
+        header("location: ./dashboard.php");
+    }
 }
 
 ?>
@@ -37,11 +50,141 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     <!-- Navigation -->
     <nav style="background: <?=$color2?>;"  class="dash-nav">
         <ul>
-            <li style="color: <?=$color4?>;"><a href="./logout.php">Logout</a></li>
-            <li style="color: <?=$color4?>;">Anpassen</li>
+            <li style="color: <?=$color4?>;" class="logout"><a href="./logout.php">Logout</a></li>
+            <li style="color: <?=$color4?>;" class="color-btn">Farbschema</li>
             <li style="color: <?=$color4?>;">Hilfe</li>
         </ul>
     </nav>
+
+    <!-- Formular um Dashboard anzupassen -->
+    <div class="color-form-wrapper">
+        <form style="border-color: <?=$color3?>; background: <?=$color1?>" class="color-form" action="./dashboard.php" method="POST">
+            <h3 style="color: <?=$color4?>;" class="color-title">Farbschema anpassen</h3>
+            <div class="color-wrapper">
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc1">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='1'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc2">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='2'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc3">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='3'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc4">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='4'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc5">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='5'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc6">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='6'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc7">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='7'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc8">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='8'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc9">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='9'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+                <div class="color-pick">
+                    <div style="border-color: <?=$color3?>;" class="color-container cc10">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                    </div>
+                    <label class='select-btn-wrapper'>
+                        <input class='color-select select-btn' type='radio' name='color-select' value='10'>
+                        <i class='fas fa-power-off'></i>
+                    </label>
+                </div>
+            </div>
+            <input style="border-color: <?=$color3?>; background: <?=$color1?>; color: <?=$color4?>" class="pick-color" type="submit" value="Übernehmen" name="pick-color">
+        </form>
+    </div>
 
     <!-- Dashboard-Kontainer -->
     <article class="dashboard-wrapper">
@@ -68,7 +211,7 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
             <h6 style="color: <?=$color2?>;" class="news-title">Test</h6>
             <div class="article-wrapper">
                 <img class="news-pic" src="" alt="Bild zum Artikel">
-                <a style="color: <?=$color4?>;" class="news-article" href=""></a>
+                <a style="color: <?=$color4?>;" class="news-article" href="" target="_blank"></a>
             </div>
         </div>
         <!-- Avatar -->
