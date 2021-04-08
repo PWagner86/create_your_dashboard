@@ -53,8 +53,15 @@ if(isset($_POST['pick-color'])){
     <!-- Navigation -->
     <nav style="background: <?=$color2?>;"  class="dash-nav">
         <ul>
-            <li style="color: <?=$color4?>;" class="logout"><a href="./logout.php">Logout</a></li>
+            <li class="logout"><a style="color: <?=$color4?>;" href="./logout.php">Logout</a></li>
             <li style="color: <?=$color4?>;" class="color-btn">Farbschema</li>
+            <li style="color: <?=$color4?>;" class="city-btn">
+                <label for="city">
+                    Stadt eingeben:
+                    <input style="color: <?=$color4?>; border-color: <?=$color3?>;" class="city-input" type="text" name="city">
+                    <input style="color: <?=$color4?>; border-color: <?=$color3?>; background: <?=$color2?>" type="submit" value="Eingabe" name="city-btn">
+                </label>
+            </li>
             <li style="color: <?=$color4?>;">Hilfe</li>
         </ul>
     </nav>
