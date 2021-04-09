@@ -1,15 +1,15 @@
 // Funktion für die Uhr und das Datum
 export default function getTime(){
     let date: Date = new Date;
-    let year: any = date.getFullYear();
-    let month: any = (date.getMonth() + 1);
-    let day: any = date.getDate();
-    let hour: any = date.getHours();
-    let minutes: any = date.getMinutes();
-    let dayData: any = date.getUTCDay();
-    const clockDate: any = document.querySelector(".clock-date");
-    const clockTime: any = document.querySelector(".clock-time");
-    const clockDay: any = document.querySelector(".clock-day");
+    let year: number = date.getFullYear();
+    let month: number | string = (date.getMonth() + 1);
+    let day: number | string = date.getDate();
+    let hour: number | string = date.getHours();
+    let minutes: number | string = date.getMinutes();
+    let dayData: number = date.getUTCDay();
+    const clockDate = <HTMLParagraphElement>document.querySelector(".clock-date");
+    const clockTime = <HTMLParagraphElement>document.querySelector(".clock-time");
+    const clockDay = <HTMLParagraphElement>document.querySelector(".clock-day");
     const days: Array<string> = [
         "Sonntag",
         "Montag",
@@ -20,7 +20,7 @@ export default function getTime(){
         "Samstag"
     ]
 
-    function checkTime(i: any){
+    function checkTime(i: number | string){
         if(i < 10){
             i = `0${i}`;
         }

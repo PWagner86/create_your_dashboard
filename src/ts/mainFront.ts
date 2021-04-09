@@ -1,14 +1,14 @@
 import fetchEmail from './FetchEmail.js';
 // Variabeln
-const formWrapper:any = document.querySelector(".login-register-wrapper");
-const switchBtn:any = document.querySelector(".switch");
-const loginForm:any = document.querySelector(".login-form");
-const registerForm:any = document.querySelector(".register-form");
-const mainError:any = document.querySelector(".main-error");
+const formWrapper = <HTMLElement>document.querySelector(".login-register-wrapper");
+const switchBtn = <HTMLButtonElement>document.querySelector(".switch");
+const loginForm = <HTMLFormElement>document.querySelector(".login-form");
+const registerForm = <HTMLFormElement>document.querySelector(".register-form");
+const mainError = <HTMLParagraphElement>document.querySelector(".main-error");
 
-const kind:any = document.querySelector(".avatar-select");
-const username:any = document.querySelector(".username");
-const pic:any = document.querySelector(".avatar-pic");
+const kind = <HTMLSelectElement>document.querySelector(".avatar-select");
+const username = <HTMLInputElement>document.querySelector(".username");
+const pic = <HTMLPictureElement>document.querySelector(".avatar-pic");
 
 let url:string = "https://avatars.dicebear.com/api/male/fritz.svg";
 

@@ -3,13 +3,13 @@ import getNews from './News.js';
 import getWeather from './Weather.js';
 
 // Variables
-const dashboard: any = document.querySelector(".dashboard-wrapper");
+const dashboard = <HTMLElement>document.querySelector(".dashboard-wrapper");
 const maxWidth: number = 1700;
-const navBtn: any = document.querySelector(".nav-btn");
-const nav: any = document.querySelector(".dash-nav");
-const colorBtn: any = document.querySelector(".color-btn");
-const pickColorBtn: any = document.querySelector(".pick-color");
-const colorForm: any = document.querySelector(".color-form-wrapper");
+const navBtn = <HTMLElement>document.querySelector(".nav-btn");
+const nav = <HTMLElement>document.querySelector(".dash-nav");
+const colorBtn = <HTMLLIElement>document.querySelector(".color-btn");
+const pickColorBtn = <HTMLInputElement>document.querySelector(".pick-color");
+const colorForm = <HTMLDivElement>document.querySelector(".color-form-wrapper");
 let navActive: boolean = false;
 
 // Das Dashboard soll bei einem Ultrawide-Screen nicht zu breit werden.

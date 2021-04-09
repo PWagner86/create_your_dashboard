@@ -3,9 +3,9 @@ export default function fetchEmail(){
     Diese Funktion soll asynchron prüfen,
     ob eine Email bereits vorhanden ist.
     */
-    const errorEmail: any = document.querySelector(".error-msg-email");
-    const mainError: any = document.querySelector(".main-error");
-    const inputEmail: any = document.querySelector(".input-email");
+    const errorEmail = <HTMLParagraphElement>document.querySelector(".error-msg-email");
+    const mainError = <HTMLParagraphElement>document.querySelector(".main-error");
+    const inputEmail = <HTMLInputElement>document.querySelector(".input-email");
 
 
     inputEmail.addEventListener("blur", ()=> {
