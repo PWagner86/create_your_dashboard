@@ -38,8 +38,8 @@
                 width: 100%;
                 font-size: 3vmin;
                 padding: 0.5rem 0;
+                border: none;
                 border-radius: 5px;
-                @include border(2px);
             }
         }
     }

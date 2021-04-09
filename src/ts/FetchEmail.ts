@@ -9,7 +9,7 @@ export default function fetchEmail(){
 
 
     inputEmail.addEventListener("blur", ()=> {
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append('email', inputEmail.value);
         fetch('includes/helper/checkEmail.php', {
             method: "post",

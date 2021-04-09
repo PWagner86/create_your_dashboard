@@ -7,7 +7,7 @@ export default function fetchEmail() {
     const mainError = document.querySelector(".main-error");
     const inputEmail = document.querySelector(".input-email");
     inputEmail.addEventListener("blur", () => {
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append('email', inputEmail.value);
         fetch('includes/helper/checkEmail.php', {
             method: "post",

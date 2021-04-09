@@ -12,7 +12,7 @@ function createNav($color2, $color3, $color4){
     $output .= "<label for='city'>";
     $output .= "Stadt eingeben:";
     $output .= "<input style='color: $color4; border-color: $color3;' class='city-input' type='text' name='city'>";
-    $output .= "<input style='color: $color4; border-color: $color3; background: $color2' type='submit' value='Eingabe' name='city-btn'>";
+    $output .= "<input style='color: $color2; background: $color3' type='submit' value='Eingabe' name='city-btn'>";
     $output .= "</label>";
     $output .= "</form>";
     $output .= "</li>";
