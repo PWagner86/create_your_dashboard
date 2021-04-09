@@ -30,10 +30,10 @@ class Crud extends PDO{
         return $this -> lastInsertId();
     }
 
-    public function getSingleRecord($benutzernameInput){
-        $query = "SELECT * FROM user WHERE benutzername = :benutzername";
+    public function getSingleRecord($email){
+        $query = "SELECT * FROM user WHERE email = :email";
         $stmt = $this -> prepare($query);
-        $stmt -> bindParam(':benutzername', $benutzernameInput);
+        $stmt -> bindParam(':email', $email);
         $stmt -> execute();
         $result = $stmt -> fetch();
         return $result;

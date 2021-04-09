@@ -104,9 +104,9 @@ if(isset($_POST["login"])){
             <p class="error-msg main-error"><?= $regError ?></p>
             <!-- Eingabe für Email -->
             <label class="form-label" for="email">
-                <p class="error-msg"><?=$errors['email'] ?? '' ?></p>
+                <p class="error-msg error-msg-email"><?=$errors['email'] ?? '' ?></p>
                 Email:
-                <input class="form-input" type="text" name="email" value="<?= htmlspecialchars($regEmail)?>">
+                <input class="form-input input-email" type="text" name="email" value="<?= htmlspecialchars($regEmail)?>">
             </label>
             <!-- Eingabe für Passwort -->
             <label class="form-label" for="password">

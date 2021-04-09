@@ -2,7 +2,6 @@
 
 class InputValidation{
 
-    private $crud;
     private $data;
     public $logError;
     public $loginError = "Email oder Passwort sind falsch";
@@ -52,7 +51,6 @@ class InputValidation{
                 $this -> logError = "Email oder Passwort sind falsch";
             }
         }
-
     }
 
     private function validatePassword(){

@@ -1,4 +1,4 @@
-"use strict";
+import fetchEmail from './FetchEmail.js';
 // Variabeln
 const formWrapper = document.querySelector(".login-register-wrapper");
 const switchBtn = document.querySelector(".switch");
@@ -57,3 +57,5 @@ kind.addEventListener("change", () => {
     url = `https://avatars.dicebear.com/api/${kind.value}/${username.value}.svg`;
     pic.setAttribute("src", url);
 });
+// Asynchroner Emailcheck.
+fetchEmail();
