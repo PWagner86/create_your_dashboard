@@ -3,8 +3,12 @@ session_start();
 require('./classes/Crud.class.php');
 require('./helper/colorPicker.php');
 require('./prefs/credentials.php');
-require('./components/createColorContainer.php');
 require('./components/createMetaTags.php');
+require('./components/createNav.php');
+require('./components/createColorContainer.php');
+require('./components/createClock.php');
+require('./components/createWeather.php');
+require('./components/createNews.php');
 // CRUD Validierungsklasse instanzieren
 $crudInstance = new Crud($host, $user, $passwd, $dbname);
 
@@ -55,22 +59,7 @@ if(isset($_POST['city-btn'])){
     </header>
 
     <!-- Navigation -->
-    <nav style="background: <?=$color2?>;"  class="dash-nav">
-        <ul>
-            <li class="logout"><a style="color: <?=$color4?>;" href="./logout.php">Logout</a></li>
-            <li style="color: <?=$color4?>;" class="color-btn">Farbschema</li>
-            <li style="color: <?=$color4?>;" class="city-btn">
-                <form action="" method="POST">
-                    <label for="city">
-                        Stadt eingeben:
-                        <input style="color: <?=$color4?>; border-color: <?=$color3?>;" class="city-input" type="text" name="city">
-                        <input style="color: <?=$color4?>; border-color: <?=$color3?>; background: <?=$color2?>" type="submit" value="Eingabe" name="city-btn">
-                    </label>
-                </form>
-            </li>
-            <li style="color: <?=$color4?>;">Hilfe</li>
-        </ul>
-    </nav>
+    <?=createNav($color2, $color3, $color4)?>
 
     <!-- Formular um Dashboard anzupassen -->
     <div class="color-form-wrapper">
@@ -97,29 +86,15 @@ if(isset($_POST['city-btn'])){
     <article class="dashboard-wrapper">
         <!-- Uhr -->
         <div class="clock-wrapper content">
-            <div style="border-color: <?=$color3?>; box-shadow: 0 0 20px <?=$color2?>" class="outer-clock">
-                <div style="border-color: <?=$color3?>;" class="middle-clock">
-                    <div style="border-color: <?=$color2?>;" class="inner-clock">
-                        <p style="color: <?=$color4?>;" class="clock-day"></p>
-                        <p style="color: <?=$color4?>;" class="clock-date"></p>
-                        <p style="color: <?=$color4?>;" class="clock-time"></p>
-                    </div>
-                </div>
-            </div>
+            <?=createClock($color2, $color3, $color4)?>
         </div>
         <!-- Wetter -->
         <div class="weather-wrapper content">
-            <p style="color: <?=$color4?>;" class="city"><?=$city?></p>
-            <img class="weather-icon" src="" alt="Wetter-Icon">
-            <p style="color: <?=$color4?>;" class="degree">25°C</p>
+            <?=createWeather($color4, $city)?>
         </div> 
         <!-- News -->
         <div class="news-wrapper content">
-            <h6 style="color: <?=$color2?>;" class="news-title">Test</h6>
-            <div class="article-wrapper">
-                <img class="news-pic" src="" alt="Bild zum Artikel">
-                <a style="color: <?=$color4?>;" class="news-article" href="" target="_blank"></a>
-            </div>
+            <?=createNews($color2, $color4)?>
         </div>
         <!-- Avatar -->
         <div class="avatar-wrapper content">

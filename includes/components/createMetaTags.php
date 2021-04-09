@@ -1,7 +1,8 @@
 <?php
 
-// Funktion für die Metatags
+// Funktion für die Metatags.
 function createMetaTags($title, $cssLink){
+    
     $output = "<meta charset='UTF-8'>";
     $output .= "<meta name='description' content='Costumize your dashboard the way you want'>";
     $output .= "<meta name='keywords' content='Dashboard, create, weather, avatar, news, clock'>";
