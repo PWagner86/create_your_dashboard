@@ -1,5 +1,5 @@
 <?php
-if($_SESSION && $_SESSION['status'] == "Loged in"){
+if($_SESSION['status'] && $_SESSION['status'] == "Loged in"){
 
     $color1 = "";
     $color2 = "";

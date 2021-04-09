@@ -9,10 +9,10 @@ $crudInstance = new Crud($host, $user, $passwd, $dbname);
 if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     // echo $_SESSION['status'];
     // echo $_SESSION['ID'];
-    // echo $_SESSION['user'];
-    // echo $_SESSION['avatar'];
-    $username = $_SESSION['user'];
-    $avatar = $_SESSION['avatar'];
+    $state = $crudInstance -> getSingleRecord($_SESSION['ID']);
+    $username = $state['benutzername'];
+    $avatar = $state['avatar'];
+    $city = $state['city'];
 }else{
     header("location: ../index.php");
 }
@@ -22,6 +22,15 @@ if(isset($_POST['pick-color'])){
     if(isset($colorSchema)){
         $crudInstance -> updateColorMethod($colorSchema, $_SESSION['ID']);
         $_SESSION['color'] = $colorSchema;
+        header("location: ./dashboard.php");
+    }
+}
+
+// Standort für Wetter auswählen
+if(isset($_POST['city-btn'])){
+    $cityInput = filter_var($_POST['city'], FILTER_SANITIZE_STRING);
+    if(isset($cityInput)){
+        $crudInstance -> updateCity($cityInput, $_SESSION['ID']);
         header("location: ./dashboard.php");
     }
 }
@@ -56,11 +65,13 @@ if(isset($_POST['pick-color'])){
             <li class="logout"><a style="color: <?=$color4?>;" href="./logout.php">Logout</a></li>
             <li style="color: <?=$color4?>;" class="color-btn">Farbschema</li>
             <li style="color: <?=$color4?>;" class="city-btn">
-                <label for="city">
-                    Stadt eingeben:
-                    <input style="color: <?=$color4?>; border-color: <?=$color3?>;" class="city-input" type="text" name="city">
-                    <input style="color: <?=$color4?>; border-color: <?=$color3?>; background: <?=$color2?>" type="submit" value="Eingabe" name="city-btn">
-                </label>
+                <form action="" method="POST">
+                    <label for="city">
+                        Stadt eingeben:
+                        <input style="color: <?=$color4?>; border-color: <?=$color3?>;" class="city-input" type="text" name="city">
+                        <input style="color: <?=$color4?>; border-color: <?=$color3?>; background: <?=$color2?>" type="submit" value="Eingabe" name="city-btn">
+                    </label>
+                </form>
             </li>
             <li style="color: <?=$color4?>;">Hilfe</li>
         </ul>
@@ -212,7 +223,7 @@ if(isset($_POST['pick-color'])){
         </div>
         <!-- Wetter -->
         <div class="weather-wrapper content">
-            <p style="color: <?=$color4?>;" class="city">Winterthur</p>
+            <p style="color: <?=$color4?>;" class="city"><?=$city?></p>
             <img class="weather-icon" src="" alt="Wetter-Icon">
             <p style="color: <?=$color4?>;" class="degree">25°C</p>
         </div> 

@@ -17,23 +17,24 @@ class Crud extends PDO{
         }
     }
 
-    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue){
-        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema)";
+    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue, $city){
+        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city)";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(':benutzername', $benutzernameInput);
         $stmt -> bindParam(':email', $emailInput);
         $stmt -> bindParam(':passwort', $passwortInput);
         $stmt -> bindParam(':avatar', $avatarInput);
         $stmt -> bindParam(':farbschema', $colorValue);
+        $stmt -> bindParam(':city', $city);
         $stmt -> execute();
 
         return $this -> lastInsertId();
     }
 
-    public function getSingleRecord($email){
-        $query = "SELECT * FROM user WHERE email = :email";
+    public function getSingleRecord($id){
+        $query = "SELECT * FROM user WHERE ID = :ID";
         $stmt = $this -> prepare($query);
-        $stmt -> bindParam(':email', $email);
+        $stmt -> bindParam(':ID', $id);
         $stmt -> execute();
         $result = $stmt -> fetch();
         return $result;
@@ -50,20 +51,24 @@ class Crud extends PDO{
         if($result !== false && password_verify($password, $result['passwort'])){
             $_SESSION['status'] = "Loged in";
             $_SESSION['ID'] = $result['ID'];
-            $_SESSION['user'] = $result['benutzername'];
-            $_SESSION['avatar'] = $result['avatar'];    
             $_SESSION['color'] = $result['farbschema'];
             return $result;
         }
     }
 
     public function updateColorMethod($farbSchema, $id){
-        $query = "UPDATE user SET ";
-        $query .= "farbschema = :farbschema ";
-        $query .= "WHERE ID = :ID";
+        $query = "UPDATE user SET farbschema = :farbschema WHERE ID = :ID";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
         $stmt -> bindParam(":farbschema", $farbSchema, PDO::PARAM_INT);
+        $stmt -> execute();
+    }
+
+    public function updateCity($city, $id){
+        $query = "UPDATE user SET city = :city WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":city", $city);
         $stmt -> execute();
     }
 }

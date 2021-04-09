@@ -3,7 +3,7 @@ export default function getWeather(){
     const city: any = document.querySelector(".city");
     const temp: any = document.querySelector(".degree");
     const icon: any = document.querySelector(".weather-icon");
-    let place: string = "Winterthur";
+    let place: any = document.querySelector(".city");
 
     // API-Key aufrufen
     const xhttp: any = new XMLHttpRequest();
@@ -11,7 +11,7 @@ export default function getWeather(){
         if (this.readyState == 4 && this.status == 200) {
             const response: any = JSON.parse(xhttp.responseText);
             // console.log(response);
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${response.weather}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.innerHTML}&appid=${response.weather}&units=metric`)
             .then(res => {
                 res.json()
                 .then(data => {
