@@ -32,6 +32,7 @@ if(isset($_POST["register"])){
 // Login
 $logEmail = "";
 $logPassword = "";
+$loginError = "";
 
 if(isset($_POST["login"])){
     // Eingaben validieren
@@ -42,8 +43,12 @@ if(isset($_POST["login"])){
 
     // Wenn das Error-Array leer ist, wird eingelogt.
     if(empty($errors)){
-        $crudInstance -> login($logEmail, $logPassword);
-        header("location: ./includes/dashboard.php");
+        $login = $crudInstance -> login($logEmail, $logPassword);
+        if($login == true){
+            header("location: ./includes/dashboard.php");
+        }else{
+            $loginError = "Email oder Passwort sind falsch";
+        }
     }
 }
 
@@ -74,7 +79,7 @@ if(isset($_POST["login"])){
             <!-- Form-Titel -->
             <h3 class="form-title">Login</h3>
             <!-- Fehlermeldung -->
-            <p class="error-msg"><?= $validation -> logError ?? '' ?></p>
+            <p class="error-msg"><?= $validation -> logError ?? $loginError ?></p>
             <!-- Eingabe für Email -->
             <label class="form-label" for="email">
                 Email

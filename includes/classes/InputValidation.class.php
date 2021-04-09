@@ -1,8 +1,11 @@
 <?php
+
 class InputValidation{
 
+    private $crud;
     private $data;
     public $logError;
+    public $loginError = "Email oder Passwort sind falsch";
     private $errors = array();
     private $formFields = ['email', 'password', 'username'];
     private $loginFields = ['email', 'password'];

@@ -47,15 +47,15 @@ class Crud extends PDO{
         $stmt -> bindParam(':email', $email);
         $stmt -> execute();
         $result = $stmt -> fetch();
-        if($result && password_verify($password, $result['passwort'])){
+        if($result !== false && password_verify($password, $result['passwort'])){
             $_SESSION['status'] = "Loged in";
             $_SESSION['ID'] = $result['ID'];
             $_SESSION['user'] = $result['benutzername'];
             $_SESSION['avatar'] = $result['avatar'];    
             $_SESSION['color'] = $result['farbschema'];
+            return $result;
         }
     }
-
 
     public function updateColorMethod($farbSchema, $id){
         $query = "UPDATE user SET ";
