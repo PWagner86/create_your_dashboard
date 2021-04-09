@@ -3,6 +3,7 @@ session_start();
 require('./includes/prefs/credentials.php');
 require('./includes/classes/Crud.class.php');
 require('./includes/classes/InputValidation.class.php');
+require('./includes/components/createMetaTags.php');
 // CRUD Validierungsklasse instanzieren
 $crudInstance = new Crud($host, $user, $passwd, $dbname);
 
@@ -57,14 +58,8 @@ if(isset($_POST["login"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Costumize your dashboard the way you want">
-    <meta name="keywords" content="Dashboard, create, weather, avatar, news, clock">
-    <meta name="author" content="Peter Wagner">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create your Dashboard</title>
-    <link rel="stylesheet" href="./css/mainFront.css">
+    <!-- Hier werden die Metatags und Stylelinks geladen -->
+    <?=createMetaTags("Create your Dashboard", "./css/mainFront.css")?>
     <script src="./js/mainFront.js" type="module"></script>
 </head>
 <body>
