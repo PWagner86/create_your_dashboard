@@ -16,7 +16,7 @@ function createNav($color2, $color3, $color4){
     $output .= "</label>";
     $output .= "</form>";
     $output .= "</li>";
-    $output .= "<li style='color: $color4;'>Hilfe</li>";
+    $output .= "<li style='color: $color4;'>Anpassen</li>";
     $output .= "</ul>";
     $output .= "</nav>";
 

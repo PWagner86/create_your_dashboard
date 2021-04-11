@@ -1,6 +1,7 @@
 import getTime from './Clock.js';
 import getNews from './News.js';
 import getWeather from './Weather.js';
+import EditDash from './EditDash.js';
 
 // Variables
 const dashboard = <HTMLElement>document.querySelector(".dashboard-wrapper");
@@ -11,6 +12,10 @@ const colorBtn = <HTMLLIElement>document.querySelector(".color-btn");
 const pickColorBtn = <HTMLInputElement>document.querySelector(".pick-color");
 const colorForm = <HTMLDivElement>document.querySelector(".color-form-wrapper");
 let navActive: boolean = false;
+const editDash: EditDash = new EditDash("Uhr", "Wetter", "News", "Avatar");
+const spots = <NodeList>document.querySelectorAll(".spot");
+const shiftElements: HTMLDivElement[] = [];
+
 
 // Das Dashboard soll bei einem Ultrawide-Screen nicht zu breit werden.
 if(window.innerWidth > maxWidth){
@@ -55,3 +60,9 @@ getNews();
 setInterval(getWeather, 60000);
 setInterval(getNews, 20000);
 // Functions
+spots.forEach(spot => {
+    spot.addEventListener("click", (e)=> {
+        const element = <HTMLDivElement>e.target;
+        editDash.selectContainer(element, shiftElements);
+    })
+})
