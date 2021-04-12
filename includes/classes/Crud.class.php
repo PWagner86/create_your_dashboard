@@ -17,7 +17,7 @@ class Crud extends PDO{
         }
     }
 
-    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue, $city = "New York", $clock = "first", $weather = "second", $news = "third", $avatar = "fourth"){
+    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue = 1, $city = "New York", $clock = "first", $weather = "second", $news = "third", $avatar = "fourth"){
         $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city, uhrPos, wetterPos, newsPos, avatarPos) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city, :uhrPos, :wetterPos, :newsPos, :avatarPos)";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(':benutzername', $benutzernameInput);

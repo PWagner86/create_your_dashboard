@@ -23,7 +23,7 @@ if(isset($_POST["register"])){
 
     // Wenn das Error-Array leer ist, werden die Eingaben in die Datenbank gespeichert
     if(empty($errors)){
-        $crudInstance -> createMethod($regUsername, $regEmail, password_hash($regPassword, PASSWORD_DEFAULT), $_POST['avatar'], 1, "New York");
+        $crudInstance -> createMethod($regUsername, $regEmail, password_hash($regPassword, PASSWORD_DEFAULT), $_POST['avatar']);
         header("location: index.php");
     }else{
         $regError = "Etwas ist schief gelaufen";
