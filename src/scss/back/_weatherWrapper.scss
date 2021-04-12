@@ -1,8 +1,6 @@
 @use '../helper/' as *;
 
 .weather-wrapper{
-    right: 0;
-    top: 0;
     @include flex(center, center, column);
 
     .weather-icon{

@@ -19,6 +19,10 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     $username = $state['benutzername'];
     $avatar = $state['avatar'];
     $city = $state['city'];
+    $clockPos = $state['uhrPos'];
+    $weatherPos = $state['wetterPos'];
+    $newsPos = $state['newsPos'];
+    $avatarPos = $state['avatarPos'];
 }else{
     header("location: ../index.php");
 }
@@ -39,6 +43,26 @@ if(isset($_POST['city-btn'])){
         $crudInstance -> updateCity($cityInput, $_SESSION['ID']);
         header("location: ./dashboard.php");
     }
+}
+
+// Anordnen
+if(isset($_POST['edit-btn'])){
+    if(isset($_POST['clock']) && isset($_POST['weather']) && isset($_POST['news']) && isset($_POST['avatar'])){
+        $clockPosition = $_POST['clock'];
+        $weatherPosition = $_POST['weather'];
+        $newsPosition = $_POST['news'];
+        $avatarPosition = $_POST['avatar'];
+        echo $clockPosition;
+        echo $weatherPosition;
+        echo $newsPosition;
+        echo $avatarPosition;
+        $crudInstance -> updateClockPos($clockPosition, $_SESSION['ID']);
+        $crudInstance -> updateWeatherPos($weatherPosition, $_SESSION['ID']);
+        $crudInstance -> updateNewsPos($newsPosition, $_SESSION['ID']);
+        $crudInstance -> updateAvatarPos($avatarPosition, $_SESSION['ID']);
+        header("location: ./dashboard.php");
+    }
+
 }
 
 ?>
@@ -85,19 +109,19 @@ if(isset($_POST['city-btn'])){
     <!-- Dashboard-Kontainer -->
     <article class="dashboard-wrapper">
         <!-- Uhr -->
-        <div class="clock-wrapper content">
+        <div class="<?=$clockPos?> clock-wrapper content">
             <?=createClock($color2, $color3, $color4)?>
         </div>
         <!-- Wetter -->
-        <div class="weather-wrapper content">
+        <div class="<?=$weatherPos?> weather-wrapper content">
             <?=createWeather($color4, $city)?>
         </div> 
         <!-- News -->
-        <div class="news-wrapper content">
+        <div class="<?=$newsPos?> news-wrapper content">
             <?=createNews($color2, $color4)?>
         </div>
         <!-- Avatar -->
-        <div class="avatar-wrapper content">
+        <div class="<?=$avatarPos?> avatar-wrapper content">
             <img class="avatar" src="https://avatars.dicebear.com/api/<?=$avatar?>/<?=$username?>.svg" alt="Dein gewählter Avatar">
         </div>
     </article>

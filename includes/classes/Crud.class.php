@@ -17,8 +17,8 @@ class Crud extends PDO{
         }
     }
 
-    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue, $city){
-        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city)";
+    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue, $city = "New York", $clock = "first", $weather = "second", $news = "third", $avatar = "fourth"){
+        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city, uhrPos, wetterPos, newsPos, avatarPos) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city, :uhrPos, :wetterPos, :newsPos, :avatarPos)";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(':benutzername', $benutzernameInput);
         $stmt -> bindParam(':email', $emailInput);
@@ -26,6 +26,10 @@ class Crud extends PDO{
         $stmt -> bindParam(':avatar', $avatarInput);
         $stmt -> bindParam(':farbschema', $colorValue);
         $stmt -> bindParam(':city', $city);
+        $stmt -> bindParam(':uhrPos', $clock);
+        $stmt -> bindParam(':wetterPos', $weather);
+        $stmt -> bindParam(':newsPos', $news);
+        $stmt -> bindParam(':avatarPos', $avatar);
         $stmt -> execute();
 
         return $this -> lastInsertId();
@@ -71,5 +75,39 @@ class Crud extends PDO{
         $stmt -> bindParam(":city", $city);
         $stmt -> execute();
     }
+
+    public function updateClockPos($clock, $id){
+        $query = "UPDATE user SET uhrPos = :uhrPos WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":uhrPos", $clock);
+        $stmt -> execute();
+    }
+
+    public function updateWeatherPos($weather, $id){
+        $query = "UPDATE user SET wetterPos = :wetterPos WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":wetterPos", $weather);
+        $stmt -> execute();
+    }
+
+    public function updateNewsPos($news, $id){
+        $query = "UPDATE user SET newsPos = :newsPos WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":newsPos", $news);
+        $stmt -> execute();
+    }
+
+    public function updateAvatarPos($avatar, $id){
+        $query = "UPDATE user SET avatarPos = :avatarPos WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":avatarPos", $avatar);
+        $stmt -> execute();
+    }
+
+
 }
 ?>

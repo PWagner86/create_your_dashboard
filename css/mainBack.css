@@ -57,6 +57,30 @@
   font-size: 3vmin;
   width: 90%;
 }
+.dash-nav ul .edit-wrapper form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.dash-nav ul .edit-wrapper form label {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.dash-nav ul .edit-wrapper form label select {
+  font-family: "Orbitron", sans-serif;
+}
+.dash-nav ul .edit-wrapper form input[type=submit] {
+  width: 100%;
+  font-size: 3vmin;
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 5px;
+}
 .dash-nav ul .city-btn .city-input {
   width: 100%;
   padding: 0.5rem 0;
@@ -91,8 +115,6 @@
 }
 
 .clock-wrapper {
-  left: 0;
-  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,8 +166,6 @@
 }
 
 .weather-wrapper {
-  right: 0;
-  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,8 +181,6 @@
 }
 
 .news-wrapper {
-  left: 0;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,8 +210,6 @@
 }
 
 .avatar-wrapper {
-  right: 0;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -409,113 +425,28 @@
   border-radius: 5px;
 }
 
-.dash-edit-wrapper {
-  z-index: 10;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.856);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.dash-edit-wrapper .edit-wrapper {
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper {
-  width: 80%;
-  height: 100%;
-  position: relative;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  border-style: solid;
-  border-width: 2px;
-  background: blue;
-  transition: ease-in-out 0.3s;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot h6 {
-  font-size: 4vmin;
-  pointer-events: none;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot:hover {
-  z-index: 11;
-  width: 60%;
-  height: 60%;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot1 {
-  top: 0;
+.first {
   left: 0;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot1:hover {
-  top: -5%;
-  left: -5%;
-  right: 5%;
-  bottom: 5%;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot2 {
   top: 0;
+}
+
+.second {
   right: 0;
+  top: 0;
 }
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot2:hover {
-  top: -5%;
-  right: -5%;
-  left: 45%;
-  bottom: 55%;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot3 {
-  bottom: 0;
+
+.third {
   left: 0;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot3:hover {
-  bottom: -5%;
-  left: -5%;
-  right: 55%;
-  top: 45%;
-}
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot4 {
   bottom: 0;
+}
+
+.fourth {
   right: 0;
+  bottom: 0;
 }
-.dash-edit-wrapper .edit-wrapper .spot-wrapper .spot4:hover {
-  bottom: -5%;
-  right: -5%;
-  left: 45%;
-  top: 45%;
-}
-.dash-edit-wrapper .edit-wrapper .edit-nav {
-  width: 20%;
-  height: 100%;
-  background: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.dash-edit-wrapper .edit-wrapper .edit-nav ul {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-}
-.dash-edit-wrapper .edit-wrapper .edit-nav ul li {
-  width: 100%;
-  cursor: pointer;
+
+.noshow {
+  display: none;
 }
 
 * {

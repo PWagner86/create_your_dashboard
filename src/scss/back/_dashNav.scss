@@ -19,6 +19,31 @@
             width: 90%;
         }
 
+        .edit-wrapper{
+
+            form{
+                width: 100%;
+                @include flex(center, flex-start, column);
+
+                label{
+                    width: 80%;
+                    @include flex(space-between, center, row);
+
+                    select{
+                        font-family: $mainFont;
+                    }
+                }
+
+                input[type="submit"]{
+                    width: 100%;
+                    font-size: 3vmin;
+                    padding: 0.5rem 0;
+                    border: none;
+                    border-radius: 5px;
+                }    
+            }
+        }
+
         .city-btn{
             
             .city-input{

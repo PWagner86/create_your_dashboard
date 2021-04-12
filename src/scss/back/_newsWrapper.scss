@@ -1,8 +1,6 @@
 @use '../helper/' as *;
 
 .news-wrapper{
-    left: 0;
-    bottom: 0;
     @include flex(center, center, column);
 
     .news-title{
