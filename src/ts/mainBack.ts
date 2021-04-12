@@ -47,11 +47,12 @@ pickColorBtn.addEventListener("click", ()=> {
     colorForm.style.display = "none";
 })
 
+
 // Funktion um die Uhr aktuell zu halten
 getTime();
 getWeather();
 getNews();
 // Aktuallisiert das Wetter und die News alle 60 resp. 20 Sekunden
 setInterval(getWeather, 60000);
-setInterval(getNews, 20000);
+setInterval(getNews, 120000); // Es sind nur 100 Requests pro Tag möglich.
 // Functions

@@ -52,17 +52,12 @@ if(isset($_POST['edit-btn'])){
         $weatherPosition = $_POST['weather'];
         $newsPosition = $_POST['news'];
         $avatarPosition = $_POST['avatar'];
-        echo $clockPosition;
-        echo $weatherPosition;
-        echo $newsPosition;
-        echo $avatarPosition;
         $crudInstance -> updateClockPos($clockPosition, $_SESSION['ID']);
         $crudInstance -> updateWeatherPos($weatherPosition, $_SESSION['ID']);
         $crudInstance -> updateNewsPos($newsPosition, $_SESSION['ID']);
         $crudInstance -> updateAvatarPos($avatarPosition, $_SESSION['ID']);
         header("location: ./dashboard.php");
     }
-
 }
 
 ?>

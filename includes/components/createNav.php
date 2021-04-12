@@ -7,7 +7,7 @@ function createNav($color2, $color3, $color4){
     $output .= "<ul>";
     $output .= "<li class='logout'><a style='color: $color4;' href='./logout.php'>Logout</a></li>";
     $output .= "<li style='color: $color4;' class='color-btn'>Farbschema<li>";
-    $output .= "<li style='color: $color4;' class='edit-wrapper'>Anordnen";
+    $output .= "<li style='color: $color4;' class='edit-wrapper'>Position wählen";
     $output .= "<form action='./dashboard.php' method='POST'>";
     $output .= "<label for='clock'>";
     $output .= "Uhr:";
@@ -23,9 +23,9 @@ function createNav($color2, $color3, $color4){
     $output .= "Wetter:";
     $output .= "<select style='background: $color3;' name='weather'>";
     $output .= "<option value='second'>Oben rechts</option>";
-    $output .= "<option value='first'>Oben links</option>";
     $output .= "<option value='third'>Unten links</option>";
     $output .= "<option value='fourth'>Unten rechts</option>";
+    $output .= "<option value='first'>Oben links</option>";
     $output .= "<option value='noshow'>Ausblenden</option>";
     $output .= "</select>";
     $output .= "</label>";
@@ -33,9 +33,9 @@ function createNav($color2, $color3, $color4){
     $output .= "News:";
     $output .= "<select style='background: $color3;' name='news'>";
     $output .= "<option value='third'>Unten links</option>";
+    $output .= "<option value='fourth'>Unten rechts</option>";
     $output .= "<option value='first'>Oben links</option>";
     $output .= "<option value='second'>Oben rechts</option>";
-    $output .= "<option value='fourth'>Unten rechts</option>";
     $output .= "<option value='noshow'>Ausblenden</option>";
     $output .= "</select>";
     $output .= "</label>";
