@@ -1,6 +1,7 @@
-import getTime from './Clock.js';
-import getNews from './News.js';
-import getWeather from './Weather.js';
+import Clock from './Clock.js';
+import News from './News.js';
+import Weather from './Weather.js';
+import { selectors, setSelectors } from './Position.js';
 // Variables
 const dashboard = document.querySelector(".dashboard-wrapper");
 const maxWidth = 1700;
@@ -10,6 +11,9 @@ const colorBtn = document.querySelector(".color-btn");
 const pickColorBtn = document.querySelector(".pick-color");
 const colorForm = document.querySelector(".color-form-wrapper");
 let navActive = false;
+const clock = new Clock;
+const weather = new Weather;
+const news = new News;
 // Das Dashboard soll bei einem Ultrawide-Screen nicht zu breit werden.
 if (window.innerWidth > maxWidth) {
     dashboard.style.width = `${maxWidth}px`;
@@ -44,11 +48,24 @@ colorBtn.addEventListener("click", () => {
 pickColorBtn.addEventListener("click", () => {
     colorForm.style.display = "none";
 });
+selectors[0].addEventListener("change", () => {
+    setSelectors(0);
+});
+selectors[1].addEventListener("change", () => {
+    setSelectors(1);
+});
+selectors[2].addEventListener("change", () => {
+    setSelectors(2);
+});
+selectors[3].addEventListener("change", () => {
+    setSelectors(3);
+});
 // Funktion um die Uhr aktuell zu halten
-getTime();
-getWeather();
-getNews();
+clock.getTime();
+weather.getData();
+news.getData();
+setInterval(clock.getTime, 500);
 // Aktuallisiert das Wetter und die News alle 60 resp. 20 Sekunden
-setInterval(getWeather, 60000);
-setInterval(getNews, 120000); // Es sind nur 100 Requests pro Tag möglich.
+setInterval(weather.getData, 60000);
+setInterval(news.getData, 20000);
 // Functions

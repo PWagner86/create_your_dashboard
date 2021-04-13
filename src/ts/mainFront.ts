@@ -1,4 +1,4 @@
-import fetchEmail from './FetchEmail.js';
+import fetchEmail from './FetchEmail.js'
 // Variabeln
 const formWrapper = <HTMLElement>document.querySelector(".login-register-wrapper");
 const switchBtn = <HTMLButtonElement>document.querySelector(".switch");

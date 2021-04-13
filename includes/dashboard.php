@@ -52,6 +52,7 @@ if(isset($_POST['edit-btn'])){
         $weatherPosition = $_POST['weather'];
         $newsPosition = $_POST['news'];
         $avatarPosition = $_POST['avatar'];
+
         $crudInstance -> updateClockPos($clockPosition, $_SESSION['ID']);
         $crudInstance -> updateWeatherPos($weatherPosition, $_SESSION['ID']);
         $crudInstance -> updateNewsPos($newsPosition, $_SESSION['ID']);
