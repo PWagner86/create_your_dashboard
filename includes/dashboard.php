@@ -68,6 +68,8 @@ if(isset($_POST['edit-btn'])){
 <head>
     <!-- Hier werden die Metatags und Stylelinks geladen -->
     <?=createMetaTags("Dashboard", "../css/mainBack.css")?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" defer></script>
+    <script src="../games/slingshot/slingshotGame.js" type="module"></script>
     <script src="../js/mainBack.js" type="module"></script>
 </head>
 <body style="background: <?=$color1?>;">
@@ -100,6 +102,10 @@ if(isset($_POST['edit-btn'])){
             </div>
             <input style="border-color: <?=$color3?>; background: <?=$color1?>; color: <?=$color4?>" class="pick-color" type="submit" value="Übernehmen" name="pick-color">
         </form>
+    </div>
+
+    <div class="slingshot-wrapper">
+
     </div>
 
     <!-- Dashboard-Kontainer -->

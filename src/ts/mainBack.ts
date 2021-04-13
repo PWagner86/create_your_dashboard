@@ -66,10 +66,6 @@ selectors[3].addEventListener("change", ()=> {
 
 
 // Funktion um die Uhr aktuell zu halten
-clock.getTime();
-weather.getData();
-news.getData();
-
 setInterval(clock.getTime, 500);
 // Aktuallisiert das Wetter und die News alle 60 resp. 20 Sekunden
 setInterval(weather.getData, 60000);
