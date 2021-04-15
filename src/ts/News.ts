@@ -2,6 +2,11 @@
 
 export default class News{
 
+    constructor(){
+        this.getData();
+        setInterval(this.getData, 20000);
+    }
+
     public getData(){
         const headline = <HTMLHeadingElement>document.querySelector(".news-title");
         const newsText = <HTMLHeadingElement>document.querySelector(".news-article");

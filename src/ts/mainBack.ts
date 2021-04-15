@@ -10,6 +10,9 @@ const navBtn = <HTMLElement>document.querySelector(".nav-btn");
 const nav = <HTMLElement>document.querySelector(".dash-nav");
 const colorBtn = <HTMLLIElement>document.querySelector(".color-btn");
 const pickColorBtn = <HTMLInputElement>document.querySelector(".pick-color");
+const slingshotGame = <HTMLDivElement>document.querySelector(".slingshot-wrapper");
+// slingshotGame.style.display = "none";
+const slingshotBtn = <HTMLLIElement>document.querySelector(".slingshot-btn");
 const colorForm = <HTMLDivElement>document.querySelector(".color-form-wrapper");
 let navActive: boolean = false;
 const clock: Clock = new Clock;
@@ -36,6 +39,7 @@ navBtn.addEventListener("click", ()=> {
         navActive = false;
     }
 })
+
 
 // Farbauswahl soll sichtbar werden, wenn Knopf gedrückt wird
 colorBtn.addEventListener("click", ()=> {
@@ -64,11 +68,14 @@ selectors[3].addEventListener("change", ()=> {
     setSelectors(3);
 })
 
+// Slingshot Game öffnen und schliessen
+slingshotBtn.addEventListener("click", ()=> {
+    slingshotGame.style.display = "flex";
+    navBtn.style.transform = "rotateZ(0deg)";
+    nav.style.top = "-100vh";
+    navActive = false;    
+})
 
-// Funktion um die Uhr aktuell zu halten
-setInterval(clock.getTime, 500);
-// Aktuallisiert das Wetter und die News alle 60 resp. 20 Sekunden
-setInterval(weather.getData, 60000);
-setInterval(news.getData, 20000); 
+
 
 // Functions

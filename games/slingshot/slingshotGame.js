@@ -1,6 +1,13 @@
 const slingshotWrapper = document.querySelector(".slingshot-wrapper");
+const closeBtn = document.querySelector(".close-slingshot");
+const restart = document.querySelector(".restart-slingshot");
+const counter = document.querySelector(".counter");
 const width = slingshotWrapper.clientWidth;
 const height = slingshotWrapper.clientHeight;
+let count = 0;
+
+counter.innerHTML = count;
+
 let engine = Matter.Engine.create();
 
 let render = Matter.Render.create({
@@ -34,11 +41,7 @@ let sling = Matter.Constraint.create({
 })
 
 let stack = Matter.Composites.stack(width - 520,270,8,4,0,0, function(x,y){
-    // return Matter.Bodies.rectangle(x,y,80,80);
-    // let sides = Math.round(Matter.Common.random(2, 8));
-    // return Matter.Bodies.polygon(x, y, sides, Matter.Common.random(20, 50));
     return Matter.Bodies.polygon(x,y,8,30);
-
 })
 
 let firing = false;
@@ -51,9 +54,34 @@ Matter.Events.on(engine, 'afterUpdate', function(){
         Matter.World.add(engine.world, ball);
         sling.bodyB = ball;
         firing = false;
+        count++;
+        counter.innerHTML = count;
     }
 })
+
 
 Matter.World.add(engine.world,[stack, ground, ball, sling, mouseConstraint]);
 Matter.Engine.run(engine);
 Matter.Render.run(render);
+
+closeBtn.addEventListener("click", ()=> {
+    slingshotWrapper.style.display = "none";
+})
+
+restart.addEventListener("click", ()=> {
+
+    console.log("click");
+})
+
+// function checkWin(){
+//     stack.bodies.forEach(poly => {
+//         // console.log(poly.position.x);
+//         let polyX = poly.position.x;
+//         let polyY = poly.position.y;
+//         if(poly.position.x > width + polyX || poly.position.y > height + polyY){
+//             console.log("Jippiii");
+//         }
+//     })   
+// }
+
+// console.log(stack.bodies[0].position.y);

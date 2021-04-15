@@ -103,9 +103,11 @@ if(isset($_POST['edit-btn'])){
             <input style="border-color: <?=$color3?>; background: <?=$color1?>; color: <?=$color4?>" class="pick-color" type="submit" value="Übernehmen" name="pick-color">
         </form>
     </div>
-
+    <!-- Slingshot Game -->
     <div class="slingshot-wrapper">
-
+        <button class="close-slingshot"><i class="fas fa-times"></i></button>
+        <p class="counter"></p>
+        <button class="restart-slingshot">Neustart</button>
     </div>
 
     <!-- Dashboard-Kontainer -->

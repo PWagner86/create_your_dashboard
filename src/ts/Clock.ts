@@ -1,6 +1,10 @@
 // Uhrklass um Zeit und Datum anzuzeigen
 
 export default class Clock {
+
+    constructor(){
+        setInterval(this.getTime, 500);
+    }
     
     public getTime(){
         let date: Date = new Date;

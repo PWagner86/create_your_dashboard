@@ -2,6 +2,11 @@
 
 export default class Weather{
 
+    constructor(){
+        this.getData();
+        setInterval(this.getData, 6000);
+    }
+
     public getData(){
         const city = <HTMLParagraphElement>document.querySelector(".city");
         const temp = <HTMLParagraphElement>document.querySelector(".degree");

@@ -1,5 +1,9 @@
 // Newsklass um NewsDaten zu holen
 export default class News {
+    constructor() {
+        this.getData();
+        setInterval(this.getData, 20000);
+    }
     getData() {
         const headline = document.querySelector(".news-title");
         const newsText = document.querySelector(".news-article");

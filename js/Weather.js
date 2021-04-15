@@ -1,5 +1,9 @@
 // Wetterklasse um Wetterdaten zu holen
 export default class Weather {
+    constructor() {
+        this.getData();
+        setInterval(this.getData, 6000);
+    }
     getData() {
         const city = document.querySelector(".city");
         const temp = document.querySelector(".degree");
