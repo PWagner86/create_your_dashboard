@@ -68,6 +68,7 @@ if(isset($_POST['edit-btn'])){
 <head>
     <!-- Hier werden die Metatags und Stylelinks geladen -->
     <?=createMetaTags("Dashboard", "../css/mainBack.css")?>
+    <!-- Matter.js für die Games -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" defer></script>
     <script src="../games/slingshot/slingshotGame.js" type="module"></script>
     <script src="../js/mainBack.js" type="module"></script>
