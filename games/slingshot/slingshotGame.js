@@ -48,6 +48,8 @@ let firing = false;
 Matter.Events.on(mouseConstraint, 'enddrag', function(e){
     if(e.body === ball) firing = true;
 })
+Matter.Events.on(engine, 'beforeUpdate', checkWin);
+
 Matter.Events.on(engine, 'afterUpdate', function(){
     if(firing && Math.abs(ball.position.x -300) < 20 && Math.abs(ball.position.y-500) < 20){
         ball = Matter.Bodies.circle(300,500,20);
@@ -56,6 +58,8 @@ Matter.Events.on(engine, 'afterUpdate', function(){
         firing = false;
         count++;
         counter.innerHTML = count;
+
+
     }
 })
 
@@ -73,15 +77,8 @@ restart.addEventListener("click", ()=> {
     console.log("click");
 })
 
-// function checkWin(){
-//     stack.bodies.forEach(poly => {
-//         // console.log(poly.position.x);
-//         let polyX = poly.position.x;
-//         let polyY = poly.position.y;
-//         if(poly.position.x > width + polyX || poly.position.y > height + polyY){
-//             console.log("Jippiii");
-//         }
-//     })   
-// }
-
-// console.log(stack.bodies[0].position.y);
+function checkWin(){
+    if(stack.bodies.every(poly => poly.position.y > 600)){
+        console.log("WIN");
+    }
+}
