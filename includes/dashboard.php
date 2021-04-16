@@ -68,9 +68,6 @@ if(isset($_POST['edit-btn'])){
 <head>
     <!-- Hier werden die Metatags und Stylelinks geladen -->
     <?=createMetaTags("Dashboard", "../css/mainBack.css")?>
-    <!-- Matter.js für die Games -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" defer></script>
-    <script src="../games/slingshot/slingshotGame.js" type="module"></script>
     <script src="../js/mainBack.js" type="module"></script>
 </head>
 <body style="background: <?=$color1?>;">
@@ -103,12 +100,6 @@ if(isset($_POST['edit-btn'])){
             </div>
             <input style="border-color: <?=$color3?>; background: <?=$color1?>; color: <?=$color4?>" class="pick-color" type="submit" value="Übernehmen" name="pick-color">
         </form>
-    </div>
-    <!-- Slingshot Game -->
-    <div class="slingshot-wrapper">
-        <button class="close-slingshot"><i class="fas fa-times"></i></button>
-        <p class="counter"></p>
-        <button class="restart-slingshot">Neustart</button>
     </div>
 
     <!-- Dashboard-Kontainer -->

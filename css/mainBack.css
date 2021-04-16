@@ -44,9 +44,10 @@
   align-items: flex-end;
   flex-direction: row;
   z-index: 1;
+  overflow: auto;
 }
 .dash-nav ul {
-  height: 80%;
+  height: 80vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -54,7 +55,7 @@
 }
 .dash-nav ul li {
   cursor: pointer;
-  font-size: 3vmin;
+  font-size: 2.5vmin;
   width: 90%;
 }
 .dash-nav ul .edit-wrapper {
@@ -74,7 +75,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 .dash-nav ul .edit-wrapper form label select {
   cursor: pointer;
@@ -447,48 +448,6 @@
 
 .noshow {
   display: none;
-}
-
-.slingshot-wrapper {
-  z-index: 30;
-  position: absolute;
-  width: 70%;
-  height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.slingshot-wrapper .close-slingshot {
-  position: absolute;
-  right: 5%;
-  top: 5%;
-  padding: 0.5rem 1rem;
-  font-size: 3vmin;
-  color: white;
-  background: #ff3300;
-  border: solid white 3px;
-  border-radius: 3px;
-}
-.slingshot-wrapper .counter {
-  position: absolute;
-  color: white;
-  top: 5%;
-  font-size: 3vmin;
-}
-.slingshot-wrapper .restart-slingshot {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  padding: 0.5rem 1rem;
-  font-size: 3vmin;
-  color: white;
-  background: #1da71d;
-  border: solid white 3px;
-  border-radius: 3px;
 }
 
 * {

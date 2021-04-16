@@ -10,9 +10,6 @@ const navBtn = <HTMLElement>document.querySelector(".nav-btn");
 const nav = <HTMLElement>document.querySelector(".dash-nav");
 const colorBtn = <HTMLLIElement>document.querySelector(".color-btn");
 const pickColorBtn = <HTMLInputElement>document.querySelector(".pick-color");
-const slingshotGame = <HTMLDivElement>document.querySelector(".slingshot-wrapper");
-// slingshotGame.style.display = "none";
-const slingshotBtn = <HTMLLIElement>document.querySelector(".slingshot-btn");
 const colorForm = <HTMLDivElement>document.querySelector(".color-form-wrapper");
 let navActive: boolean = false;
 const clock: Clock = new Clock;
@@ -67,15 +64,5 @@ selectors[2].addEventListener("change", ()=> {
 selectors[3].addEventListener("change", ()=> {
     setSelectors(3);
 })
-
-// Slingshot Game öffnen und schliessen
-slingshotBtn.addEventListener("click", ()=> {
-    slingshotGame.style.display = "flex";
-    navBtn.style.transform = "rotateZ(0deg)";
-    nav.style.top = "-100vh";
-    navActive = false;    
-})
-
-
 
 // Functions
