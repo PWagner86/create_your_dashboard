@@ -15,12 +15,7 @@ const clock = new Clock;
 const weather = new Weather;
 const news = new News;
 // Das Dashboard soll bei einem Ultrawide-Screen nicht zu breit werden.
-if (window.innerWidth > maxWidth) {
-    dashboard.style.width = `${maxWidth}px`;
-}
-else {
-    dashboard.style.width = `${window.innerWidth}px`;
-}
+(window.innerWidth > maxWidth) ? dashboard.style.width = `${maxWidth}px` : dashboard.style.width = `${window.innerWidth}px`;
 // Events
 // Navigation ein- und ausblenden
 navBtn.addEventListener("click", () => {
