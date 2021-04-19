@@ -9,6 +9,8 @@ require('./components/createColorContainer.php');
 require('./components/createClock.php');
 require('./components/createWeather.php');
 require('./components/createNews.php');
+
+
 // CRUD Validierungsklasse instanzieren
 $crudInstance = new Crud($host, $user, $passwd, $dbname);
 
@@ -69,6 +71,7 @@ if(isset($_POST['edit-btn'])){
     <!-- Hier werden die Metatags und Stylelinks geladen -->
     <?=createMetaTags("Dashboard", "../css/mainBack.css")?>
     <script src="../js/mainBack.js" type="module"></script>
+    <script src="../js/canvas.js" type="module"></script>
 </head>
 <body style="background: <?=$color1?>;">
 
@@ -100,6 +103,10 @@ if(isset($_POST['edit-btn'])){
             </div>
             <input style="border-color: <?=$color3?>; background: <?=$color1?>; color: <?=$color4?>" class="pick-color" type="submit" value="Übernehmen" name="pick-color">
         </form>
+    </div>
+    
+    <div class="canvas-wrapper">
+        <canvas id="canvas"></canvas>
     </div>
 
     <!-- Dashboard-Kontainer -->

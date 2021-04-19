@@ -98,6 +98,7 @@ if(isset($_POST["login"])){
             <!-- Hauptfehlermeldung -->
             <p class="error-msg main-error"><?= $regError ?></p>
             <!-- Eingabe für Email -->
+            <!-- Es wird durch einen Fetch geprüft, ob die Email bereits existiert -->
             <label class="form-label" for="email">
                 <p class="error-msg error-msg-email"><?=$errors['email'] ?? '' ?></p>
                 Email:
