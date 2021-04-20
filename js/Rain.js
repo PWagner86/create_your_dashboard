@@ -1,6 +1,7 @@
 export default class Rain {
     constructor(ctx, width, height) {
         this.yspeed = Math.floor((Math.random() + 0.5) * 10);
+        this.rainColor = "#203e8f";
         this.width = width;
         this.height = height;
         this.x = Math.floor(Math.random() * this.width);
@@ -14,7 +15,8 @@ export default class Rain {
         }
     }
     show() {
-        this.ctx.fillStyle = "#203e8f";
+        this.ctx.fillStyle = this.rainColor;
         this.ctx.fillRect(this.x, this.y, 3, 20);
+        this.ctx.shadowBlur = 0;
     }
 }

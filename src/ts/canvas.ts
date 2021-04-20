@@ -1,7 +1,11 @@
 import Rain from './Rain.js';
 import Snow from './Snow.js';
+import Sun from './Sun.js';
+import Star from './Star.js';
+import Cloud from './Cloud.js';
 
 // Variablen
+const weatherEffectBtn = <HTMLLIElement>document.querySelector(".weather-effect-btn");
 const cWrapper = <HTMLDivElement>document.querySelector(".canvas-wrapper");
 const c = <HTMLCanvasElement>document.querySelector("#canvas");
 const width: number = cWrapper.clientWidth;
@@ -12,14 +16,13 @@ const place = <HTMLParagraphElement>document.querySelector(".city");
 const xhttp: XMLHttpRequest = new XMLHttpRequest();
 const drops: Rain[] = [];
 const flakes: Snow[] = [];
-
+const stars: Star[] = [];
+const clouds: Cloud[] = [];
+const sun: Sun = new Sun(ctx, width, height);
 
 
 // Events
 resizing();
-
-
-
 
 xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
@@ -30,17 +33,34 @@ xhttp.onreadystatechange = function(){
             .then(data => {
                 // console.log(data);
                 weatherString = data.weather[0].main;
-                if(weatherString === "Rain" || weatherString === "Drizzle"){
+                // Lässt es im Hintergrund regnen
+                if(weatherString === "Rain" || weatherString === "Drizzle" || weatherString === "Thunderstorm"){
                     for(let i: number = 0; i < 100; i++){
                         drops[i] = new Rain(ctx, width, height);
                     }                    
-                    setInterval(redrawRain);               
+                    setInterval(redrawRain);   
+                // Lässt es im Hintergrund schneien
                 }else if(weatherString === "Snow"){
-                    for(let i = 0; i < 200; i++){
+                    for(let i: number = 0; i < 200; i++){
                         flakes[i] = new Snow(ctx, width, height);
                     }      
-                
-                    setInterval(redrawSnow);                    
+                    setInterval(redrawSnow);      
+                // Lässt Sonne oder Sternen im Hintergrund scheinen
+                }else if(weatherString === "Clear"){
+                    if(data.weather[0].icon.includes('d')){
+                        sun.show();
+                    }else{
+                        for(let i: number = 0; i < 200; i++){
+                            stars[i] = new Star(ctx, width, height);
+                        }
+                        redrawStars();
+                    }
+                // Lässt Wolken im Hintergrund vorbeiziehen
+                }else if(weatherString === "Clouds" || weatherString === "Atmosphere"){
+                    for(let i: number = 0; i < 7; i++){
+                        clouds[i] = new Cloud(ctx, width, height);
+                    }
+                    setInterval(redrawClouds);
                 }
             })
         })
@@ -52,12 +72,24 @@ xhttp.onreadystatechange = function(){
 xhttp.open("GET", "../keys.json", true);
 xhttp.send();
 
+weatherEffectBtn.addEventListener("click", ()=> {
+    if(cWrapper.style.display !== "none"){
+        cWrapper.style.display = "none";
+        weatherEffectBtn.innerHTML = "Wettereffekte einschalten"
+    }else{
+        cWrapper.style.display = "block";
+        weatherEffectBtn.innerHTML = "Wettereffekte ausschalten"
+    }
+})
+
 // Funktionen
 function resizing(){
     c.height = height;
     c.width = width;
     redrawRain();
     redrawSnow();
+    redrawSun();
+    redrawStars();
 }
 
 function redrawRain(){
@@ -72,4 +104,19 @@ function redrawSnow(){
     flakes.forEach(flake => flake.fall());
 }
 
+function redrawStars(){
+    ctx.clearRect(0, 0, width, height);
+    stars.forEach(star => star.show());
+}
+
+function redrawSun(){
+    ctx.clearRect(0, 0, width, height);
+    sun.show();
+}
+
+function redrawClouds(){
+    ctx.clearRect(0, 0, width, height);
+    clouds.forEach(cloud => cloud.show());
+    clouds.forEach(cloud => cloud.float());
+}
 

@@ -7,6 +7,7 @@ function createNav($color2, $color3, $color4){
     $output .= "<ul>";
     $output .= "<li class='logout'><a style='color: $color4;' href='./logout.php'>Logout</a></li>";
     $output .= "<li style='color: $color4;' class='color-btn'>Farbschema<li>";
+    $output .= "<li style='color: $color4;' class='weather-effect-btn'>Wettereffekte ausschalten<li>";
     $output .= "<li style='color: $color4;' class='edit-wrapper'>Position wählen:";
     $output .= "<form action='./dashboard.php' method='POST'>";
     $output .= "<label for='clock'>";
