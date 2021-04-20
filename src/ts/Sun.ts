@@ -2,9 +2,9 @@ export default class Sun {
     public width: number;
     public height: number;
     public ctx: CanvasRenderingContext2D;
-    public x: number;
-    public y: number;
-    public sunSize: number;
+    private x: number;
+    private y: number;
+    private sunSize: number;
     private sunColor: string = "#ffd900"
 
     constructor(ctx: CanvasRenderingContext2D, width: number, height: number){

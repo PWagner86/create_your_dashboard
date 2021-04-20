@@ -16,8 +16,8 @@ const xhttp = new XMLHttpRequest();
 const drops = [];
 const flakes = [];
 const stars = [];
-const clouds = [];
 const sun = new Sun(ctx, width, height);
+const cloud = new Cloud(ctx, width, height);
 // Events
 resizing();
 xhttp.onreadystatechange = function () {
@@ -46,7 +46,7 @@ xhttp.onreadystatechange = function () {
                 }
                 else if (weatherString === "Clear") {
                     if (data.weather[0].icon.includes('d')) {
-                        sun.show();
+                        redrawSun();
                     }
                     else {
                         for (let i = 0; i < 200; i++) {
@@ -57,10 +57,7 @@ xhttp.onreadystatechange = function () {
                     // Lässt Wolken im Hintergrund vorbeiziehen
                 }
                 else if (weatherString === "Clouds" || weatherString === "Atmosphere") {
-                    for (let i = 0; i < 7; i++) {
-                        clouds[i] = new Cloud(ctx, width, height);
-                    }
-                    setInterval(redrawClouds);
+                    redrawClouds();
                 }
             });
         })
@@ -89,6 +86,7 @@ function resizing() {
     redrawSnow();
     redrawSun();
     redrawStars();
+    redrawClouds();
 }
 function redrawRain() {
     ctx.clearRect(0, 0, width, height);
@@ -110,6 +108,5 @@ function redrawSun() {
 }
 function redrawClouds() {
     ctx.clearRect(0, 0, width, height);
-    clouds.forEach(cloud => cloud.show());
-    clouds.forEach(cloud => cloud.float());
+    cloud.show();
 }
