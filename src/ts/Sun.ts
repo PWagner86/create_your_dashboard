@@ -18,10 +18,10 @@ export default class Sun {
 
     public show(){
         this.ctx.beginPath();
+        this.ctx.shadowColor = this.sunColor;
+        this.ctx.shadowBlur = 200;
         this.ctx.arc(this.x, this.y, this.sunSize, 0, 2 * Math.PI);
         this.ctx.fillStyle = this.sunColor;
         this.ctx.fill();
-        this.ctx.shadowColor = this.sunColor;
-        this.ctx.shadowBlur = 20;
     }
 }

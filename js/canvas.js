@@ -84,9 +84,9 @@ function resizing() {
     c.width = width;
     redrawRain();
     redrawSnow();
-    redrawSun();
     redrawStars();
     redrawClouds();
+    redrawSun();
 }
 function redrawRain() {
     ctx.clearRect(0, 0, width, height);

@@ -10,8 +10,8 @@ export default class Cloud {
     show() {
         const img = new Image;
         img.src = "../pics/smoke-1.png";
-        this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
         this.ctx.shadowColor = "#3a3a39";
         this.ctx.shadowBlur = 5;
+        this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
     }
 }
