@@ -25,6 +25,11 @@ const cloud: Cloud = new Cloud(ctx, width, height);
 resizing();
 
 
+/*
+Hier wird geprüft, wie das Wetter
+an der Destination ist und dem
+entsprechend wird der Canvas angepasst.
+*/
 xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
         const response = JSON.parse(xhttp.responseText);
@@ -49,7 +54,7 @@ xhttp.onreadystatechange = function(){
                 // Lässt Sonne oder Sternen im Hintergrund scheinen
                 }else if(weatherString === "Clear"){
                     if(data.weather[0].icon.includes('d')){
-                        redrawSun()
+                        redrawSun();
                     }else{
                         for(let i: number = 0; i < 200; i++){
                             stars[i] = new Star(ctx, width, height);
@@ -81,6 +86,7 @@ weatherEffectBtn.addEventListener("click", ()=> {
 })
 
 // Funktionen
+
 function resizing(){
     c.height = height;
     c.width = width;
@@ -117,4 +123,3 @@ function redrawClouds(){
     ctx.clearRect(0, 0, width, height);
     cloud.show();
 }
-

@@ -20,6 +20,11 @@ const sun = new Sun(ctx, width, height);
 const cloud = new Cloud(ctx, width, height);
 // Events
 resizing();
+/*
+Hier wird geprüft, wie das Wetter
+an der Destination ist und dem
+entsprechend wird der Canvas angepasst.
+*/
 xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         const response = JSON.parse(xhttp.responseText);
