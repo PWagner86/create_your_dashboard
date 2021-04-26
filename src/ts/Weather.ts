@@ -25,6 +25,7 @@ export default class Weather{
                         const cityData: string = data.name ;
                         const weatherIcon = data.weather[0].icon;
                         const degree: number = Math.floor(data.main.temp);
+                        city.innerHTML = cityData;
                         temp.innerHTML = `${degree}°C`;
                         icon.src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
                     })
