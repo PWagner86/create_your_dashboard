@@ -5,7 +5,6 @@ import Star from './Star.js';
 import Cloud from './Cloud.js';
 
 // Variablen
-const weatherEffectBtn = <HTMLLIElement>document.querySelector(".weather-effect-btn");
 const cWrapper = <HTMLDivElement>document.querySelector(".canvas-wrapper");
 const c = <HTMLCanvasElement>document.querySelector("#canvas");
 const width: number = cWrapper.clientWidth;
@@ -74,16 +73,6 @@ xhttp.onreadystatechange = function(){
 };
 xhttp.open("GET", "../keys.json", true);
 xhttp.send();
-
-weatherEffectBtn.addEventListener("click", ()=> {
-    if(cWrapper.style.display !== "none"){
-        cWrapper.style.display = "none";
-        weatherEffectBtn.innerHTML = "Wettereffekte einschalten"
-    }else{
-        cWrapper.style.display = "block";
-        weatherEffectBtn.innerHTML = "Wettereffekte ausschalten"
-    }
-})
 
 // Funktionen
 

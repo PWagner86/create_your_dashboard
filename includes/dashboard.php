@@ -25,6 +25,7 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == "Loged in"){
     $weatherPos = $state['wetterPos'];
     $newsPos = $state['newsPos'];
     $avatarPos = $state['avatarPos'];
+    $weatherEffectState = $state['wettereffekt'];
 }else{
     header("location: ../index.php");
 }
@@ -63,6 +64,25 @@ if(isset($_POST['edit-btn'])){
     }
 }
 
+// Wettereffekte ein- und ausblenden
+if($weatherEffectState == 1){
+    $weatherOnOff = "block";
+    $weatherEffectText = "Wettereffekte ausschalten";
+}else{
+    $weatherOnOff = "none";
+    $weatherEffectText = "Wettereffekte einschalten";
+}
+
+if(isset($_POST['weather-effect-btn'])){
+    if($weatherEffectState == 1){
+        $crudInstance -> updateWeatherEffect(0, $_SESSION['ID']);
+        header("location: ./dashboard.php");
+    }else{
+        $crudInstance -> updateWeatherEffect(1, $_SESSION['ID']);
+        header("location: ./dashboard.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +102,7 @@ if(isset($_POST['edit-btn'])){
     </header>
 
     <!-- Navigation -->
-    <?=createNav($color2, $color3, $color4)?>
+    <?=createNav($color2, $color3, $color4, $weatherEffectText, $city)?>
 
     <!-- Formular um Dashboard anzupassen -->
     <div class="color-form-wrapper">
@@ -105,10 +125,9 @@ if(isset($_POST['edit-btn'])){
         </form>
     </div>
     
-    <div class="canvas-wrapper">
+    <div style="display: <?=$weatherOnOff?>;" class="canvas-wrapper">
         <canvas id="canvas"></canvas>
     </div>
-
     <!-- Dashboard-Kontainer -->
     <article class="dashboard-wrapper">
         <!-- Uhr -->

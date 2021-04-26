@@ -17,8 +17,8 @@ class Crud extends PDO{
         }
     }
 
-    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue = 1, $city = "New York", $clock = "first", $weather = "second", $news = "third", $avatar = "fourth"){
-        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city, uhrPos, wetterPos, newsPos, avatarPos) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city, :uhrPos, :wetterPos, :newsPos, :avatarPos)";
+    public function createMethod($benutzernameInput, $emailInput, $passwortInput, $avatarInput, $colorValue = 1, $city = "New York", $clock = "first", $weather = "second", $news = "third", $avatar = "fourth", $weatherEffect = 1){
+        $query = "INSERT INTO user (benutzername, email, passwort, avatar, farbschema, city, uhrPos, wetterPos, newsPos, avatarPos, wettereffekt) VALUES (:benutzername, :email, :passwort, :avatar, :farbschema, :city, :uhrPos, :wetterPos, :newsPos, :avatarPos, :wettereffekt)";
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(':benutzername', $benutzernameInput);
         $stmt -> bindParam(':email', $emailInput);
@@ -30,6 +30,7 @@ class Crud extends PDO{
         $stmt -> bindParam(':wetterPos', $weather);
         $stmt -> bindParam(':newsPos', $news);
         $stmt -> bindParam(':avatarPos', $avatar);
+        $stmt -> bindParam(':wettereffekt', $weatherEffect);
         $stmt -> execute();
 
         return $this -> lastInsertId();
@@ -105,6 +106,14 @@ class Crud extends PDO{
         $stmt = $this -> prepare($query);
         $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
         $stmt -> bindParam(":avatarPos", $avatar);
+        $stmt -> execute();
+    }
+
+    public function updateWeatherEffect($weatherEffect, $id){
+        $query = "UPDATE user SET wettereffekt = :wettereffekt WHERE ID = :ID";
+        $stmt = $this -> prepare($query);
+        $stmt -> bindParam(":ID", $id, PDO::PARAM_INT);
+        $stmt -> bindParam(":wettereffekt", $weatherEffect);
         $stmt -> execute();
     }
 
