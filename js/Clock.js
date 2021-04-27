@@ -30,6 +30,7 @@ export default class Clock {
         clockDate.innerHTML = `${day}.${month}.${year}`;
         clockTime.innerHTML = `${hour}:${minutes}`;
         clockDay.innerHTML = days[dayData];
+        // Sorgt dafür, dass immer eine Null vorne steht, sollte die Zahl niedriger als 10 sein.
         function checkTime(i) {
             if (i < 10) {
                 i = `0${i}`;

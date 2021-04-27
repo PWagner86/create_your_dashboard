@@ -48,6 +48,7 @@ pickColorBtn.addEventListener("click", ()=> {
     colorForm.style.display = "none";
 })
 
+
 selectors[0].addEventListener("change", ()=> {
     setSelectors(0);
 })
@@ -60,5 +61,3 @@ selectors[2].addEventListener("change", ()=> {
 selectors[3].addEventListener("change", ()=> {
     setSelectors(3);
 })
-
-// Functions

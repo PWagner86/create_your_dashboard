@@ -17,7 +17,7 @@ export default class Clock {
         const clockDate = <HTMLParagraphElement>document.querySelector(".clock-date");
         const clockTime = <HTMLParagraphElement>document.querySelector(".clock-time");
         const clockDay = <HTMLParagraphElement>document.querySelector(".clock-day");
-        const days: Array<string> = [
+        const days: string[] = [
             "Sonntag",
             "Montag",
             "Dienstag", 
@@ -36,6 +36,7 @@ export default class Clock {
         clockTime.innerHTML = `${hour}:${minutes}`;
         clockDay.innerHTML = days[dayData];
 
+        // Sorgt dafür, dass immer eine Null vorne steht, sollte die Zahl niedriger als 10 sein.
         function checkTime(i: number | string){
             if(i < 10){
                 i = `0${i}`;

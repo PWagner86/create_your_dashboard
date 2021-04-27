@@ -1,3 +1,5 @@
+// Zeichnet den Regen in den Canvas
+
 export default class Rain {
     public width: number;
     public height: number;

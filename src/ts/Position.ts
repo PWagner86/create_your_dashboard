@@ -1,5 +1,6 @@
 export const selectors = document.querySelectorAll<HTMLSelectElement>("select");
 
+// Sorgt dafür, dass das selektierte Element für die anderen Selektoren nicht mehr auswählbar ist.
 export function setSelectors(value: number){
     if(selectors[value].value === "first"){
         selectors.forEach(selector => {

@@ -1,3 +1,4 @@
+//Sonnenklasse für den Canvas
 export default class Sun {
     constructor(ctx, width, height) {
         this.sunColor = "#ffd900";

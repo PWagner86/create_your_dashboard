@@ -16,6 +16,7 @@ export default class News {
                     .then(res => {
                     res.json()
                         .then(data => {
+                        // console.log(data);
                         // Zufällig generierte Nummer um zufällig einen Artikel auszuwählen
                         let random = Math.floor(Math.random() * Math.floor(data.articles.length));
                         const article = data.articles[random];

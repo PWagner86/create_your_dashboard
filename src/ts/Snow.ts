@@ -1,3 +1,5 @@
+// Schneeklasse für Canvas
+
 export default class Snow{
     public width: number;
     public height: number;

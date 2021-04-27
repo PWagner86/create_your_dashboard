@@ -1,3 +1,5 @@
+// Wolkenklass für den Canvas
+
 export default class Cloud {
     public width: number;
     public height: number;

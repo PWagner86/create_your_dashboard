@@ -1,3 +1,5 @@
+// Sternenklasse für Canvas
+
 export default class Star {
     public width: number;
     public height: number;

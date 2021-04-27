@@ -55,4 +55,3 @@ selectors[2].addEventListener("change", () => {
 selectors[3].addEventListener("change", () => {
     setSelectors(3);
 });
-// Functions

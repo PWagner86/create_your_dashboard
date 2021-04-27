@@ -1,3 +1,4 @@
+// Wolkenklass für den Canvas
 export default class Cloud {
     constructor(ctx, width, height) {
         this.floatSpeed = 1;

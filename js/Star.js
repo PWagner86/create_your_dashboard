@@ -1,3 +1,4 @@
+// Sternenklasse für Canvas
 export default class Star {
     constructor(ctx, width, height) {
         this.starColor = "#e3eb9d";

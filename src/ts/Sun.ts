@@ -1,3 +1,5 @@
+//Sonnenklasse für den Canvas
+
 export default class Sun {
     public width: number;
     public height: number;

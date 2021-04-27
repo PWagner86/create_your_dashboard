@@ -1,3 +1,4 @@
+// Schneeklasse für Canvas
 export default class Snow {
     constructor(ctx, width, height) {
         this.yspeed = Math.floor((Math.random() + 0.1) * 3);

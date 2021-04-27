@@ -1,3 +1,4 @@
+// Zeichnet den Regen in den Canvas
 export default class Rain {
     constructor(ctx, width, height) {
         this.yspeed = Math.floor((Math.random() + 0.5) * 10);

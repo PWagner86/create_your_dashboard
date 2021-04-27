@@ -11,7 +11,6 @@ const height = cWrapper.clientHeight;
 const ctx = c.getContext("2d", { alpha: true });
 let weatherString = "";
 const place = document.querySelector(".city");
-const xhttp = new XMLHttpRequest();
 const drops = [];
 const flakes = [];
 const stars = [];
