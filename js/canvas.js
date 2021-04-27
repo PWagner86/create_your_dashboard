@@ -24,10 +24,11 @@ Hier wird geprüft, wie das Wetter
 an der Destination ist und dem
 entsprechend wird der Canvas angepasst.
 */
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        const response = JSON.parse(xhttp.responseText);
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.innerHTML}&appid=${response.weather}&units=metric`)
+fetch("../keys.json")
+    .then(res => {
+    res.json()
+        .then(key => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.innerHTML}&appid=${key.weather}&units=metric`)
             .then(res => {
             res.json()
                 .then(data => {
@@ -68,10 +69,8 @@ xhttp.onreadystatechange = function () {
             .catch(error => {
             console.log(error);
         });
-    }
-};
-xhttp.open("GET", "../keys.json", true);
-xhttp.send();
+    });
+});
 // Funktionen
 function resizing() {
     c.height = height;

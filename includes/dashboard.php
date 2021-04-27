@@ -109,7 +109,7 @@ if(isset($_POST['weather-effect-btn'])){
         <form style="border-color: <?=$color3?>; background: <?=$color1?>" class="color-form" action="./dashboard.php" method="POST">
             <h3 style="color: <?=$color4?>;" class="color-title">Farbschema anpassen</h3>
             <div class="color-wrapper">
-            <!-- Um Platz zu sparen wir hier eine Funktion eingebaut, welche die Komponenten hinein läd. -->
+            <!-- Um Platz zu sparen, haben wir hier eine Funktion eingebaut, welche die Komponenten hinein läd. -->
                 <?=createColorContainer($color3, 1)?>
                 <?=createColorContainer($color3, 2)?>
                 <?=createColorContainer($color3, 3)?>

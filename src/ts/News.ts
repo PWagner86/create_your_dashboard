@@ -11,12 +11,12 @@ export default class News{
         const headline = <HTMLHeadingElement>document.querySelector(".news-title");
         const newsText = <HTMLHeadingElement>document.querySelector(".news-article");
         const newsPic = <HTMLImageElement>document.querySelector(".news-pic");
-        
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                const response = JSON.parse(xhttp.responseText);
-                fetch(`https://newsapi.org/v2/top-headlines?country=ch&apiKey=${response.news}`)
+
+        fetch("../keys.json")
+        .then(res => {
+            res.json()
+            .then(keys => {
+                fetch(`https://newsapi.org/v2/top-headlines?country=ch&apiKey=${keys.news}`)
                 .then(res => {
                     res.json()
                     .then(data => {
@@ -37,9 +37,7 @@ export default class News{
                 .catch(error => {
                     console.log(error);
                 })
-            }
-        };
-        xhttp.open("GET", "../keys.json", true);
-        xhttp.send();
+            })
+        })
     }
 }

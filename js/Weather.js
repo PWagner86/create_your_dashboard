@@ -9,11 +9,11 @@ export default class Weather {
         const temp = document.querySelector(".degree");
         const icon = document.querySelector(".weather-icon");
         const place = document.querySelector(".city");
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                const response = JSON.parse(xhttp.responseText);
-                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.innerHTML}&appid=${response.weather}&units=metric`)
+        fetch("../keys.json")
+            .then(res => {
+            res.json()
+                .then(keys => {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.innerHTML}&appid=${keys.weather}&units=metric`)
                     .then(res => {
                     res.json()
                         .then(data => {
@@ -29,9 +29,7 @@ export default class Weather {
                     .catch(error => {
                     console.log(error);
                 });
-            }
-        };
-        xhttp.open("GET", "../keys.json", true);
-        xhttp.send();
+            });
+        });
     }
 }
